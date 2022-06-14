@@ -52,6 +52,9 @@ Victor Nsengiyumva
 
 status: The web application is still under development to meet utmost optimisation.
 
+database:
+data is stored on the sqlite3 database system which is secure
+
 
 
 
