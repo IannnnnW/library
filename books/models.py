@@ -1,7 +1,8 @@
 from django.db import models
+from django.forms import CharField
 
 # Create your models here.
-class books(models.Model):
+class Book(models.Model):
   CATEGORY = [
     ('education', 'Education'),
     ('entertainment', 'Entertainment'),
@@ -22,3 +23,11 @@ class books(models.Model):
   author = models.CharField(max_length=200)
   category = models.CharField(max_length=40, choices = CATEGORY)
   status = models.CharField(max_length = 30, choices=STATUS_CHOICES)
+  description = models.CharField(max_length=1000)
+  image = models.ImageField(upload_to = 'pics')
+  class Meta:
+    verbose_name_plural = 'books'
+
+  def __str__(self):
+    return self.name
+
