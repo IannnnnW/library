@@ -1,9 +1,6 @@
 from django.db import models
-<<<<<<< HEAD
-=======
 from django.forms import CharField
 
->>>>>>> 4584890202c7298d9aae7769fc0c0d7463c247b0
 # Create your models here.
 class Book(models.Model):
   CATEGORY = [
