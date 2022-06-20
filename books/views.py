@@ -6,3 +6,6 @@ def index(request):
 
 def home(request):
     return render(request, 'books/home.html')
+
+def borrow(request):
+    return render(request, 'books/borrow.html')
