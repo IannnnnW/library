@@ -1,4 +1,4 @@
-<!-- {% load static %} -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,8 +77,8 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
         <div class = "mx-auto text-center">
             <h3>Featured Books</h3>
             <div class = "row mb-3">
-                <img class="col"src="img/51mPB2812SL._SX382_BO1,204,203,200_.jpg" alt="Quantum Mechanics">
-                <img class="col"src="img/download.jpg" alt="Book">
+                <img class="col"src='{% static "img/51mPB2812SL._SX382_BO1,204,203,200_.jpg"%}' alt="Quantum Mechanics">
+                <img class="col"src='{% static "img/download.jpg"%}' alt="Book">
             </div>
             <table class = "table table-hover">
                 <thead>
