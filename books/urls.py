@@ -5,4 +5,5 @@ urlpatterns = [
     #Home Page
     path('', views.index, name = 'index'),
     path('home/' ,views.home, name = 'home'),
+    path('home/borrow' ,views.borrow, name = 'borrow'),
 ]
