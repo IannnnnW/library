@@ -28,6 +28,10 @@ class Book(models.Model):
     verbose_name_plural = 'books'
 
   def __str__(self):
+<<<<<<< HEAD
     return self.title
     return self.description
 
+=======
+    return self.name
+>>>>>>> Wasukira_Ian
