@@ -2,7 +2,54 @@
 {% load static %}
 {% static "images" as BaseUrl %}
 <body>
+<<<<<<< HEAD
+	<nav class="navbar mb-4 navbar-expand-lg navbar-dark bg-dark fixed-top mb-4 border">
+		<a class="navbar-brand border-md-right" href="index.php">
+			<h4 class="text-warning">TBL</h4>
+		</a>
+		<div>
+			<h4 class = "display-6 text-light">Hello @username</h4>
+		</div>
+		<button class="navbar-toggler" 
+				type="button" 
+				data-toggle="collapse"
+				data-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown"
+				aria-expanded="false"
+				aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav ml-auto">
+				<!--we need to change the href of the Home.-->
+				<li class = "nav-item" >
+					<a class="nav-link active text-warning" href="home">Home</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-warning" 
+						id="navbarDropdownMenuLink" 
+						role="button" 
+						data-toggle="dropdown" 
+						aria-haspopup="true" 
+						aria-expanded="false" 
+						href="profile.html">Profile
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">@Username</a>
+						<a class="dropdown-item" href="#">Borrowed Books</a>
+						<a class="dropdown-item" href="#">Return Date</a>
+                        <div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Report</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav> 
+=======
     {% block content %}
+>>>>>>> ad6931a7a01d190c2755083d101e6b01a4fef80b
     <div
 class="jumbotron jumbotron-fluid text-center"
 style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/adhoc/jumbotron.png) no-repeat center center/cover"
