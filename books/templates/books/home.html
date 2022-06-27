@@ -73,7 +73,14 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
         <button class = "btn btn-warning" type="submit" ><a href="borrow">Search</a></button>
     </form>
 
-    <section class = "container">
+    {% for book in books %}
+        <div class = 'container'>
+            <h1><a href="{% url 'books:home' %}">{{book.title}}</a></h1>
+            <p>{{book.image}}</p>
+        </div>
+    {% endfor %}
+
+    <section class = "container clear-fix">
         <div class = "mx-auto text-center">
             <h3>Featured Books</h3>
             <div class = "row mb-3">
