@@ -28,8 +28,4 @@ class Book(models.Model):
     verbose_name_plural = 'books'
 
   def __str__(self):
-<<<<<<< HEAD
-    return self.name
-=======
     return self.title
->>>>>>> 0460d9adc3ff7463f3b8df9b886be62741b9be51
