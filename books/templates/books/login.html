@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Library Management System | Login</title>
+</head>
+<body>
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger"><div></div></div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a  class = "text_secondary" href="login.html">login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header id="login_showcase">
+      <div class="showcase-container container">
+        <h1><span class="text_secondary">Log</span>in</h1>
+        <p>All your favourites in one place! From All time classics to Astronomy, we have got you covered.</p>
+        <form action="process.php">
+          <div class="form-group margin_2">
+            <label for="name">Username:</label>
+            <input type="text" name="name" id="name"class = py_1>
+          </div>
+          <div class="form-group margin_2">
+            <label for="Password">Password:</label>
+            <input type="password" name="password" id="password" class = "py_1">
+          </div>
+          <button type="submit" class="btn">Login</button>
+        </form>
+      </div>
+  </header>
+</body>
+</html>
