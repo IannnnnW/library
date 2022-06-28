@@ -1,0 +1,27 @@
+{% extends 'books/main.html' %}
+<br>
+<br>
+{% block content %}
+    {% if searched %}
+        <h1>You searched for {{ searched }}</h1><br>
+        {% for b in books %}
+            <div class="container mb-5">
+                <div class="row">
+                    <h2 class="text-warning"><u>{{ b }}</u> <br></h2>
+                    <div class="col col-xs-10 col-md-8 col-lg-4">
+                        <img src="{{b.image.url}}">
+                    </div>
+                    <div class="col col-xs-10 col-md-8">
+                        <p class="text-responsive">{{ b.description }}</p> <br>
+                        <button class="btn mb-3 btn-outline-warning float-right btn-sm border rounded">BORROW</button><br>
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h6>Unfortunately the book you have searched for is unavailable!</h6>
+    {% endif %}
+
+
+{% endblock content %}
