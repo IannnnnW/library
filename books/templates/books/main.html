@@ -15,15 +15,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Book Library</title>
 </head>
 <body>
     <nav class="navbar mb-4 navbar-expand-lg navbar-dark bg-dark fixed-top mb-4 border">
-		<a class="navbar-brand border-md-right" href="index.php">
-			<h4 class="text-warning">TBL</h4>
+		<a class="navbar-brand border-md-right" href="home">
+			<h4 class=" display-6 text-warning">TBL</h4>
 		</a>
 		<div>
-			<h4 class = "display-6 text-light">Hello @username</h4>
+			<h4 class = "display-6 text-light">Hello {{ user }}</h4>
 		</div>
 		<button class="navbar-toggler" 
 				type="button" 
@@ -52,7 +52,7 @@
 						href="profile.html">Profile
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">@Username</a>
+						<a class="dropdown-item" href="#">{{ user }}</a>
 						<a class="dropdown-item" href="#">Borrowed Books</a>
 						<a class="dropdown-item" href="#">Return Date</a>
                         <div class="dropdown-divider"></div>
