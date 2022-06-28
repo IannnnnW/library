@@ -16,59 +16,6 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
         <input class="form-control mr-2" type="search py-3" placeholder="Search">
         <button class = "btn btn-warning" type="submit" ><a href="borrow">Search</a></button>
     </form>
-<<<<<<< HEAD
-
-    {% for book in books %}
-        <div class = 'container'>
-            <h1><a href="{% url 'books:home' %}">{{book.title}}</a></h1>
-            <p>{{book.image}}</p>
-        </div>
-    {% endfor %}
-
-    <section class = "container clear-fix">
-        <div class = "mx-auto text-center">
-            <h3>Featured Books</h3>
-            <div class = "row mb-3">
-                <img class="col"src='{% static "img/51mPB2812SL._SX382_BO1,204,203,200_.jpg"%}' alt="Quantum Mechanics">
-                <img class="col"src='{% static "img/download.jpg"%}' alt="Book">
-            </div>
-            <table class = "table table-hover">
-                <thead>
-                    <tr class = "table-warning">
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Author</th>
-                        <th>Edition</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class = "table-warning">
-                        <th scope = "row">1</th>
-                        <td>Vincent In WonderLand</td>
-                        <td>The Majest Vincent</td>
-                        <td>First Edition</td>
-                    </tr>
-                    <tr class = "table-warning">
-                        <th scope = "row">1</th>
-                        <td>Wuthering Heights</td>
-                        <td>Emily Bronte</td>
-                        <td>Second Edition</td>
-                    </tr>
-                    <tr class = "table-warning">
-                        <th scope = "row">3</th>
-                        <td>Things Fall Apart</td>
-                        <td>Chinua Achebe</td>
-                        <td>Third Edition</td>
-                    </tr>
-                    <tr class = "table-warning">
-                        <th scope = "row">4</th>
-                        <td>Receipe for Disaster</td>
-                        <td>Lillian Tindyebwa</td>
-                        <td>First Edition</td>
-                    </tr>
-                </tbody>
-            </table>
-=======
     <div class = "container">
         <div class = "container card">
             {% for book in books %}
@@ -78,7 +25,6 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
                     {{book.description}}
                 </div>
             {% endfor %}
->>>>>>> a9335084cecfeb9b650993021662f234dd60fa0d
         </div>
         <section class = "container clear-fix">
             <div class = "mx-auto text-center">
