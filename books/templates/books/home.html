@@ -2,13 +2,12 @@
 {% load static %}
 {% static "images" as BaseUrl %}
 <body>
-<<<<<<< HEAD
 	<nav class="navbar mb-4 navbar-expand-lg navbar-dark bg-dark fixed-top mb-4 border">
 		<a class="navbar-brand border-md-right" href="index.php">
 			<h4 class="text-warning">TBL</h4>
 		</a>
 		<div>
-			<h4 class = "display-6 text-light">Hello @username</h4>
+			<h4 class = "display-6 text-light">Hello {{ user }}</h4>
 		</div>
 		<button class="navbar-toggler" 
 				type="button" 
@@ -37,7 +36,7 @@
 						href="profile.html">Profile
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">@Username</a>
+						<a class="dropdown-item" href="#">{{ user }}</a>
 						<a class="dropdown-item" href="#">Borrowed Books</a>
 						<a class="dropdown-item" href="#">Return Date</a>
                         <div class="dropdown-divider"></div>
@@ -47,16 +46,14 @@
 			</ul>
 		</div>
 	</nav> 
-=======
     {% block content %}
->>>>>>> ad6931a7a01d190c2755083d101e6b01a4fef80b
     <div
 class="jumbotron jumbotron-fluid text-center"
 style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/adhoc/jumbotron.png) no-repeat center center/cover"
     >
         <div class="text-white p-5">
             <h1 class="display-6"> <span class="text-warning">Welcome<br></span> to The Book Library</h1>
-            <p><small>Which book are you interested in?</small></p>
+            <p><small class="text-warnin">Which book are you interested in?</small></p>
         </div>
     </div>
     <form class="form-inline my-2 my-lg-0 justify-content-center ">
