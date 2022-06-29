@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {% extends "books/main.html" %}
+=======
+{% extends 'books/main.html' %}
+>>>>>>> 168fde0a98022b366f8968b1fd3068a2bf39c550
 <br>
 <br>
 {% block content %}
@@ -13,14 +17,19 @@
                     </div>
                     <div class="col col-xs-10 col-md-8">
                         <p class="text-responsive">{{ b.description }}</p> <br>
+<<<<<<< HEAD
                     
                             <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded" data-toggle = "modal" data-target="#myModal">BORROW</button>
                 
+=======
+                        <button class="btn mb-3 btn-outline-warning float-right btn-sm border rounded">BORROW</button><br>
+>>>>>>> 168fde0a98022b366f8968b1fd3068a2bf39c550
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
             </div>
         {% endfor %}
+<<<<<<< HEAD
         <div class="modal" id="myModal">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -37,6 +46,8 @@
               </div>
             </div>
         </div>
+=======
+>>>>>>> 168fde0a98022b366f8968b1fd3068a2bf39c550
     {% else %}
         <h6>Unfortunately the book you have searched for is unavailable!</h6>
     {% endif %}
