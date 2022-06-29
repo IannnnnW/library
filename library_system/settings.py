@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'book_library',
+        'NAME': 'vinxdb',
         'USER':'postgres',
         'HOST':'localhost',
-        'PASSWORD':'ilikedj48'
+        'PASSWORD':'1234'
     }
 }
 
