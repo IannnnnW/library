@@ -3,6 +3,11 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
+
+def login(request):
+    return render(request,'books/login.html')
+
+
 def register(request):
     if request.method != 'POST':
         form = UserCreationForm()

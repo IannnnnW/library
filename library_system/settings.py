@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #My apps
     'books',
+    'users',
 
     #Default Apps
     'django.contrib.admin',
@@ -61,6 +62,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
+            
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -82,13 +84,11 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
-
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vinxdb',
+        'NAME': 'book_library',
         'USER':'postgres',
-        'PASSWORD':'1234',
-        'HOST':'localhost'
-
+        'HOST':'localhost',
+        'PASSWORD':'ilikedj48'
     }
 }
 
@@ -131,9 +131,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'books/static'),
-
-    os.path.join(BASE_DIR, 'books/static'),
-
 
     os.path.join(BASE_DIR, 'books/static'),
 
