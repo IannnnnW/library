@@ -24,4 +24,7 @@ def search_book(request):
 def borrow(request, pk):
     return render(request, 'books/borrow.html')
 
+def profile(request):
+    return render(request, 'books/profile.html')
+
 
