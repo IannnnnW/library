@@ -2,16 +2,15 @@ from django.shortcuts import render
 from .models import Book
 # Create your views here.
 def index(request):
-    return render(request, 'books/index.html')
+    return render(request, 'index.html')
 
 
 def home(request):
     books = Book.objects.all()
     context = {'books':books}
-    return render(request, 'books/home.html', context)
+    return render(request, 'home.html', context)
 
 def borrow(request, pk):
-    return render(request, 'books/borrow.html')
+    return render(request, 'borrow.html')
 
-def filter():
-    book = Book.objects.filter()
+
