@@ -84,11 +84,21 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b4eba5f06063ce52231ef6490a40d7cdfee6b7b
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'book_library',
+        'NAME': 'vinxdb',
         'USER':'postgres',
+<<<<<<< HEAD
         'HOST':'localhost',
         'PASSWORD':'ilikedj48'
+=======
+        'PASSWORD':'1234',
+        'HOST':'localhost'
+
+>>>>>>> 7b4eba5f06063ce52231ef6490a40d7cdfee6b7b
     }
 }
 
@@ -134,6 +144,12 @@ STATICFILES_DIRS = [
 
     os.path.join(BASE_DIR, 'books/static'),
 
+<<<<<<< HEAD
+=======
+
+    os.path.join(BASE_DIR, 'books/static'),
+
+>>>>>>> 7b4eba5f06063ce52231ef6490a40d7cdfee6b7b
     os.path.join(BASE_DIR, "books/static"),
 
 ]
