@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #My apps
     'books',
+    'users',
 
     #Default Apps
     'django.contrib.admin',
@@ -61,6 +62,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
+            
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -82,12 +84,20 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'Library_9',
         'USER': 'postgres',
         'PASSWORD':'12345',
         'HOST': 'localhost',
         'PORT': '5432',
+=======
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'book_library',
+        'USER':'postgres',
+        'HOST':'localhost',
+        'PASSWORD':'ilikedj48'
+>>>>>>> 57d23a70d5a6c0766a6288045b77129f2d03243d
     }
 }
 
@@ -129,7 +139,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
+<<<<<<< HEAD
     os.path.join(BASE_DIR, 'books/static')
+=======
+    os.path.join(BASE_DIR, 'books/static'),
+
+    os.path.join(BASE_DIR, 'books/static'),
+
+    os.path.join(BASE_DIR, "books/static"),
+
+>>>>>>> 57d23a70d5a6c0766a6288045b77129f2d03243d
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 # Default primary key field type
