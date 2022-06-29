@@ -90,6 +90,7 @@ DATABASES = {
         'HOST':'localhost',
         'PASSWORD':'1234'
     }
+    
 }
 
 
