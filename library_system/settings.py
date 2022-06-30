@@ -85,7 +85,11 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+<<<<<<< HEAD
         'NAME': 'books',
+=======
+        'NAME': 'Library_9',
+>>>>>>> 636ae602819f5cf5469596b8616704acd9b4e346
         'USER': 'postgres',
         'PASSWORD':'12345',
         'HOST': 'localhost',
@@ -132,7 +136,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
+<<<<<<< HEAD
     os.path.join(BASE_DIR, 'books/static'),
+=======
+    os.path.join(BASE_DIR, 'books/static')
+>>>>>>> 636ae602819f5cf5469596b8616704acd9b4e346
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 # Default primary key field type
