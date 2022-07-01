@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from .forms import registerform
 from django.contrib.auth.models import auth
 
 # Create your views here.
@@ -21,14 +20,14 @@ def login(request):
 
 def register(request):
     if request.method != 'POST':
-        form = UserCreationForm()
+        form = registerform()
 
     else:
-        form = UserCreationForm(data=request.POST)
+        form = registerform(data=request.POST)
         if form.is_valid():
             new_user = form.save()
             register(request, new_user)
-            return redirect('books:login')
+        return redirect('/login')
 
     context = {'form': form}
     return render(request, 'books/register.html', context)
