@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import registerform
-from django.contrib.auth.models import auth
+from django.contrib.auth.models import auth, login as auth_login
 
 # Create your views here.
 
@@ -13,7 +13,11 @@ def login(request):
 
         if user is not None:
             auth.login(request,user)
-            return redirect('/')
+            return redirect('/home')
+        else:
+        
+            return render(request,)
+
     else:
         return render(request,'books/login.html')
 
@@ -26,8 +30,8 @@ def register(request):
         form = registerform(data=request.POST)
         if form.is_valid():
             new_user = form.save()
-            register(request, new_user)
-        return redirect('/login')
+            auth.login(request, new_user)
+            return redirect('users:login')
 
     context = {'form': form}
     return render(request, 'books/register.html', context)
