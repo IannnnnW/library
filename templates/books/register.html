@@ -13,45 +13,55 @@
 
 <body>
 
-{%block title%} <h1 class="text-center">Create an account</h1>{%endblock%}
+{%block title%} <h1 class="text-center text-warning">Create an account</h1>{%endblock%}
 
 {% block content %}
-<div class="mr-5 ml-5" > 
-    <form method = 'POST' class="center">
+<div class="showcase-container container"> 
+    <form method = 'POST' action="register">
         {% csrf_token %}
         <br>
         <form class="form-inline">
             <div class="row">
                 <div class="form-group col">
-                    <label for="first_name">First Name</label>
+                    <label class="text-warning" for="first_name">First Name</label>
                     <input class="form-control-mb-5" type="text" placeholder="First name">
                 </div>
                 <div class="form-group col">
-                    <label for="last_name">Last Name</label>
+                    <label class="text-warning" for="last_name">Last Name</label>
                     <input class="form-control-mb-2" type="text" placeholder="Last name">
                 </div>
             </div>
             <div class="form-group">
-                <label for="username">Username</label>
+                <label class="text-warning" for="username">Username</label>
                 <input class="form-control" type="text" id="username">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label class="text-warning" for="password">Password</label>
                 <input class="form-control" type="text" id="password">
-                <div>
-                    Password not strong enough
-                </div>
+                <small class="form-text text-muted" >
+                    <ul>
+                        <li>Password should be atleast 8 characters.</li>
+                        <li>Password should have characters, numbers and symbols.</li>
+                        <li>Password can't be entirely numeric.</li>
+                        <li>Password can't be too similar to your other personal information.</li>
+                    </ul>
+                </small>
             </div>
             <div class="form-group">
-                <label for="password2">Confirm Password</label>
+                <label class="text-warning" for="password2">Confirm Password</label>
                 <input class="form-control" type="text" id="password2">
-                <div>
+               <!-- <div class="invalid-feedback">
                     Password does not match
-                </div>
+                </div> -->
             </div>
         </form>
+        
+        <div class="form-group">
+            <label class="text-warning" for="email_address">Email</label>
+            <input class="form-control" type="text" id="email_address">
+        </div>
+        <br>
         <button type="submit" class="btn btn-warning">Register</button>
-
 
     </form>
 {% endblock %}
