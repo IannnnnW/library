@@ -1,4 +1,4 @@
-<!-- {% extends 'books/main.html' %} -->
+{% extends 'books/main.html' %}
 <br>
 <br>
 {% block content %}
@@ -13,16 +13,8 @@
                     </div>
                     <div class="col col-xs-10 col-md-8">
                         <p class="text-responsive">{{ b.description }}</p> <br>
-<<<<<<< HEAD
-                        {% if b.status.Available %}
-                            <button class="btn mb-3 btn-outline-warning float-right btn-sm border rounded">BORROW</button><br>
-                        {% else %}
-                            <button class="btn mb-3 btn-outline-warning float-right btn-sm border rounded" disabled>UNAVAILABLE</button>
-                        {% endif %}
-=======
                         <h5 class="text-warning">{{ b.status }}</h5>
                         <button class="btn mb-3 btn-outline-warning float-right btn-sm border rounded">BORROW</button><br>
->>>>>>> 636ae602819f5cf5469596b8616704acd9b4e346
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
