@@ -133,10 +133,6 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'books/static'),
 
-    os.path.join(BASE_DIR, 'books/static'),
-
-    os.path.join(BASE_DIR, "books/static"),
-
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 # Default primary key field type
