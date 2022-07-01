@@ -84,6 +84,7 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'vinxdb',
@@ -91,6 +92,12 @@ DATABASES = {
         'PASSWORD':'1234',
         'HOST': 'localhost',
         'PORT': '5432',
+=======
+
+        'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+>>>>>>> b81ffcbee2c9d135625a2893d01025e50832a0c7
     }
     
 }
@@ -133,7 +140,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'books/static')
+    os.path.join(BASE_DIR, 'books/static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 # Default primary key field type
