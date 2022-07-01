@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -84,11 +85,12 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'book_library',
-        'USER':'postgres',
-        'HOST':'localhost',
-        'PASSWORD':'ilikedj48'
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Library_9',
+        'USER': 'postgres',
+        'PASSWORD':'12345',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
     
 }
@@ -131,8 +133,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
+<<<<<<< HEAD
     os.path.join(BASE_DIR, 'books/static'),
 
+=======
+    os.path.join(BASE_DIR, 'books/static')
+>>>>>>> 00623354a83a8fc78f424326118d687717853d05
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 # Default primary key field type
@@ -143,3 +149,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+CRISPY_TEMPLATE_PACK="bootstrap4"

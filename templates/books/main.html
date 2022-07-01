@@ -32,7 +32,7 @@
 				aria-controls="navbarNavDropdown"
 				aria-expanded="false"
 				aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+				<span class="navbar-toggler-icon"></span>
 		</button>
 
 
@@ -51,20 +51,19 @@
 						aria-expanded="false" 
 						href="profile.html">Profile
 					</a>
-					<div class="dropdown-menu ml-auto mr-auto" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">{{ user }}</a>
-						<a class="dropdown-item" href="#">Borrowed Books</a>
-						<a class="dropdown-item" href="#">Return Date</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="books/profile" >{{ user }}</a>
+						<a class="dropdown-item" href="books/profile">Borrowed Books</a>
+						<a class="dropdown-item" href="books/profile">Return Date</a>
                         <div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Report</a>
+						<a class="dropdown-item" href="books/profile">Report</a>
 					</div>
 				</li>
 			</ul>
 		</div>
-	</nav> 
-    {% block content %}
-
-
-    {% endblock %}
+	</nav>
+	{% block content %}
+	
+	{% endblock content %}
 </body>
 </html>
