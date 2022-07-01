@@ -1,13 +1,13 @@
 .menu-wrap{
 position:fixed;
 top:0;
-left:0;
+right:0;
 z-index:1;
 }
 .menu-wrap .toggler{
 position:absolute;
 top:0;
-left:0;
+right:0;
 z-index:2;
 cursor:pointer;
 height:50px;
@@ -17,12 +17,12 @@ opacity:0;
 .menu-wrap .hamburger{
 position:absolute;
 top:0;
-left:0;
-height:25px;
-width:25px;
+right:0;
+height:60px;
+width:60px;
 z-index:1;
-padding:1rem;
-background:var(--primary-color);
+padding:2rem;
+background:orange;
 display:flex;
 align-items:center;
 justify-content:center;
