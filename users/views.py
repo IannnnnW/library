@@ -1,5 +1,10 @@
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
+from .forms import registerform, LoginForm
+from django.contrib.auth.forms import AuthenticationForm
+=======
 from .forms import registerform
+>>>>>>> ee397d61a5124ffb3716fc8d445db0fb1f133743
 from django.contrib.auth.models import auth
 from django.contrib.auth import login as auth_login
 
@@ -7,9 +12,12 @@ from django.contrib.auth import login as auth_login
 
 def login(request):
     if request.method == 'POST':
-        Username = request.POST.get('username')
-        Password = request.POST['password']
+        form = LoginForm(data = request.POST)
+        if form.is_valid():
+            return redirect('home')
 
+<<<<<<< HEAD
+=======
         user = auth.authenticate(username=Username,password=Password)
 
         if user is not None:
@@ -17,8 +25,12 @@ def login(request):
             return redirect('/home')
         else:
             pass
+>>>>>>> ee397d61a5124ffb3716fc8d445db0fb1f133743
     else:
-        return render(request,'books/login.html')
+        form = LoginForm()
+
+    context = {'form': form}
+    return render(request, 'registration/login.html', context)
 
 
 def register(request):
@@ -33,4 +45,4 @@ def register(request):
             return redirect('users:login')
 
     context = {'form': form}
-    return render(request, 'books/register.html', context)
+    return render(request, 'registration/register.html', context)

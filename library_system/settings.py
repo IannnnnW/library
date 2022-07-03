@@ -86,6 +86,16 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        'NAME': 'Library_9',
+        'USER': 'postgres',
+        'PASSWORD':'12345',
+        }
+=======
+<<<<<<< HEAD
+>>>>>>> 0e2bd335e6a14be4d66c45a4b3c0f5c02cf89750
         'NAME': 'book_library',
         'USER': 'postgres',
         'PASSWORD':'ilikedj48',
@@ -94,8 +104,8 @@ DATABASES = {
 
     }
     
+>>>>>>> ee397d61a5124ffb3716fc8d445db0fb1f133743
 }
-
 
 
 # Password validation
@@ -147,3 +157,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
+
+#My Settings
+LOGIN_URL = 'users:login'
