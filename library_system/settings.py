@@ -87,6 +87,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 <<<<<<< HEAD
+        'NAME': 'Library_9',
+        'USER': 'postgres',
+        'PASSWORD':'12345',
+        }
+=======
+<<<<<<< HEAD
         'NAME': 'book_library',
         'USER': 'postgres',
         'PASSWORD':'ilikedj48',
@@ -114,8 +120,8 @@ DATABASES = {
 >>>>>>> a23063ac941c7a4a94b5ac2113c4e52c80ef46e9
     }
     
+>>>>>>> ee397d61a5124ffb3716fc8d445db0fb1f133743
 }
-
 
 
 # Password validation
@@ -167,3 +173,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
+
+#My Settings
+LOGIN_URL = 'users:login'
