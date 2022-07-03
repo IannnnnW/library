@@ -9,6 +9,7 @@ app_name = 'users'
 urlpatterns = [
     #login and register Page
     path('login/', LoginView.as_view(authentication_form = LoginForm), name = 'login'),
+    path("logged_out/", views.logged_out, name ='logged_out'),
     path("register/", views.register, name = 'register'),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

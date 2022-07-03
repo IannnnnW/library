@@ -3,7 +3,7 @@ from .forms import registerform, LoginForm
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import registerform
 from django.contrib.auth.models import auth
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as core_logout
 
 # Create your views here.
 def login(request):
@@ -32,3 +32,7 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'registration/register.html', context)
+
+def logged_out(request):
+    core_logout(request)
+    return redirect('books:index')
