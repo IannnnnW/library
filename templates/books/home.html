@@ -12,14 +12,7 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
             <p><small>Which book are you interested in?</small></p>
         </div>
     </div>
-
     <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:search_book' %}">
-
-
-    <form class="form-inline my-2 my-lg-0 justify-content-center" method=POST action="{% url 'books:search_book' %}">
-
-    <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:search_book' %}">
-
         {% csrf_token %}
         <input class="form-control mr-2" type="search py-3" placeholder="Search for your Book" name="searched">
         <button class = "btn btn-sm btn-warning" type="submit" >Search</button>
@@ -40,7 +33,7 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
                 <h3>Featured Books</h3>
                 <div class = "row mb-3">
                     <!--<img class = "float-left" src='{% static "img\51mPB2812SL._SX382_BO1,204,203,200_.jpg" %}' alt="Modern Statistics">-->
-                    <!--<img class = "float-left" src='{% static "img\book.png" %}' alt="Qunatum Mechanics">-->
+                    <!--<img class = "float-left" src='{% static "img\book.png" %}' alt="Quantum Mechanics">-->
         </section>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
