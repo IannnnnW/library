@@ -87,6 +87,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 <<<<<<< HEAD
+        'NAME': 'book_library',
+        'USER': 'postgres',
+        'PASSWORD':'ilikedj48',
+        'HOST': 'localhost',
+        'PORT': '5432',
+
+=======
+<<<<<<< HEAD
         'NAME': 'Library_9',
         'USER': 'postgres',
         'PASSWORD':'12345',
@@ -103,6 +111,7 @@ DATABASES = {
 >>>>>>> d0d6004340c022523d453428cd00cf7aa3ee489e
         'HOST': 'localhost',
         'PORT': '5432',
+>>>>>>> a23063ac941c7a4a94b5ac2113c4e52c80ef46e9
     }
     
 }
@@ -146,10 +155,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'books/static'),
-<<<<<<< HEAD
-
-=======
->>>>>>> 8cd3161f2fa0c1132fe85b42d2bc28fe079b4a7b
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 # Default primary key field type
