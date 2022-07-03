@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import registerform
 from django.contrib.auth.models import auth
 from django.contrib.auth import login as auth_login
-
 # Create your views here.
-
 def login(request):
     if request.method == 'POST':
         Username = request.POST.get('username')
