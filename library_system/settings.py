@@ -84,50 +84,10 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-<<<<<<< HEAD
         'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-=======
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-<<<<<<< HEAD
-        'NAME': 'Library_9',
-        'USER': 'postgres',
-        'PASSWORD':'12345',
-        }
-=======
-<<<<<<< HEAD
-        'NAME': 'book_library',
-        'USER': 'postgres',
-        'PASSWORD':'ilikedj48',
-        'HOST': 'localhost',
-        'PORT': '5432',
-
-=======
-<<<<<<< HEAD
-        'NAME': 'Library_9',
-        'USER': 'postgres',
-        'PASSWORD':'12345',
-=======
-<<<<<<< HEAD
-        'NAME': 'book_library',
-        'USER': 'postgres',
-        'PASSWORD':'ilikedj48',
-=======
-        'NAME': 'vinxdb',
-        'USER': 'postgres',
-        'PASSWORD':'1234',
->>>>>>> 8cd3161f2fa0c1132fe85b42d2bc28fe079b4a7b
->>>>>>> d0d6004340c022523d453428cd00cf7aa3ee489e
-        'HOST': 'localhost',
-        'PORT': '5432',
->>>>>>> a23063ac941c7a4a94b5ac2113c4e52c80ef46e9
-    }
-    
->>>>>>> ee397d61a5124ffb3716fc8d445db0fb1f133743
->>>>>>> 0e2bd335e6a14be4d66c45a4b3c0f5c02cf89750
 }
 
 
