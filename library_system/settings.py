@@ -89,17 +89,13 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Library_9',
+        'NAME': 'vinxdb',
         'USER': 'postgres',
-        'PASSWORD':'12345',
+        'PASSWORD':'1234',
         'HOST': 'localhost',
         'PORT': '5432',
-<<<<<<< HEAD
     }
     
-=======
-        }
->>>>>>> acb7c7c8e1346d674627fa1bdac796f00658a746
 }
 
 
