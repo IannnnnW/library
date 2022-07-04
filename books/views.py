@@ -31,16 +31,16 @@ def borrow(request, pk):
 @login_required
 def profile(request):
     return render(request, 'books/profile.html')
-
+@login_required
 def borrowed_book(request):
     return render(request, 'books/borrowed_book.html')
-
+@login_required
 def returned_book(request):
     return render(request, 'books/returned_book.html')
-
+@login_required
 def notifications(request):
     return render(request, 'books/notifications.html')
-
+@login_required
 def fines(request):
     return render(request, 'books/fines.html')
 
