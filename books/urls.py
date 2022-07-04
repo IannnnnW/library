@@ -10,6 +10,6 @@ urlpatterns = [
     path('home/' ,views.home, name = 'home'),
     path('search_book/' ,views.search_book, name = 'search_book'),
     path('book/<int:pk>/' ,views.borrow, name = 'book'),
-    path('home/books/profile/', views.profile, name = 'profile'),
+    path('profile/', views.profile, name = 'profile'),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

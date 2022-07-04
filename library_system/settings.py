@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'books',
     'users',
 
+    #Third party apps
+    'crispy_forms',
+
     #Default Apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
+    
 ]
 
 MIDDLEWARE = [
@@ -84,10 +87,21 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Library_9',
+        'USER': 'postgres',
+        'PASSWORD':'12345',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        }
+=======
         'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+>>>>>>> 341de567508ce603976b0772436657d5736a7ff3
 }
 
 
@@ -143,3 +157,4 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 
 #My Settings
 LOGIN_URL = 'users:login'
+LOGOUT_REDIRECT_URL = "books:index"
