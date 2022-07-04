@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
 from .forms import registerform, LoginForm
 from django.contrib.auth.forms import AuthenticationForm
+<<<<<<< HEAD
+=======
+from .forms import registerform
+>>>>>>> 341de567508ce603976b0772436657d5736a7ff3
 from django.contrib.auth.models import auth
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as core_logout
 
 # Create your views here.
-
 def login(request):
     if request.method == 'POST':
         form = LoginForm(data = request.POST)
@@ -32,3 +35,7 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'registration/register.html', context)
+
+def logged_out(request):
+    core_logout(request)
+    return redirect('books:index')

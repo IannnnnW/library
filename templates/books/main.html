@@ -25,12 +25,19 @@
             <div>
                 <div>
                     <ul>
+<<<<<<< HEAD
                         {% if user.is_authenticated %}
                             <h1 class = "text-warning">Hello, <span class="text-white">{{ user }}</span></h1>
                             <li><a class = "text_secondary" href="home">Home</a></li>
                             <li><a href="{% url 'books:profile' %}">Profile</a></li>
                             <li><a href="{% url 'users:logout' %}">Logout</a></li>
                         {% endif %}
+=======
+						<h1 class = "text-warning">Hello, {{ user }}</h1>
+                        <li><a class = "text_secondary" href="home">Home</a></li>
+                        <li><a href="books/profile">Profile</a></li>
+                        <li><a href="{% url 'users:logged_out' %}">Logout</a></li>
+>>>>>>> 341de567508ce603976b0772436657d5736a7ff3
                     </ul>
                 </div>
             </div>

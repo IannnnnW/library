@@ -16,8 +16,7 @@ def search_book(request):
     if request.method == "POST":
         searched = request.POST['searched']
         books = Book.objects.filter(title__icontains=searched)
-        context = {'searched':searched,
-                   'books':books }
+        context = {'searched':searched,'books':books }
 
         return render(request, 'books/search_book.html', context)
     else:
