@@ -32,4 +32,16 @@ def borrow(request, pk):
 def profile(request):
     return render(request, 'books/profile.html')
 
+def borrowed_book(request):
+    return render(request, 'books/borrowed_book.html')
+
+def returned_book(request):
+    return render(request, 'books/returned_book.html')
+
+def notifications(request):
+    return render(request, 'books/notifications.html')
+
+def fines(request):
+    return render(request, 'books/fines.html')
+
 
