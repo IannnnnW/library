@@ -84,7 +84,6 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-<<<<<<< HEAD
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'vinxdb',
@@ -92,12 +91,6 @@ DATABASES = {
         'PASSWORD':'1234',
         'HOST': 'localhost',
         'PORT': '5432',
-=======
-
-        'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
->>>>>>> b81ffcbee2c9d135625a2893d01025e50832a0c7
     }
     
 }
