@@ -94,7 +94,12 @@ DATABASES = {
         'PASSWORD':'12345',
         'HOST': 'localhost',
         'PORT': '5432',
+<<<<<<< HEAD
+    }
+    
+=======
         }
+>>>>>>> acb7c7c8e1346d674627fa1bdac796f00658a746
 }
 
 
