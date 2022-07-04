@@ -1,3 +1,5 @@
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,14 +10,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
 
-    <title>register</title>
+    <title>Register</title>
 </head>
 
 <body>
 
 {% block title%} <h1 class="text-warning text-center">Create an Account</h1> {% endblock %}
-
-{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="card mx-auto" style="width:30rem;">

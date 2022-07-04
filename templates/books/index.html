@@ -29,9 +29,9 @@
            <h1> Book</h1>
            <h1>Library</h1>
            <p>All your favorites in one place.</p>
-           <a href="users/login"class="btn">Login</a>
+           <a href="{% url 'users:login' %}"class="btn">Login</a>
            <h6><small>Hello!, Not yet registered?</small></h6>
-           <h6><small>Please get registered here:   <span class="text-warning"><a href="users/register">Register</a></span></small></h6>
+           <h6><small>Please get registered here:   <span class="text-warning"><a href="{% url 'users:register' %}">Register</a></span></small></h6>
        </div>
    </header>
 </body>

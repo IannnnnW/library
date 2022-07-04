@@ -1,26 +1,25 @@
 from django.shortcuts import render, redirect
+from .forms import registerform, LoginForm
+from django.contrib.auth.forms import AuthenticationForm
 from .forms import registerform
 from django.contrib.auth.models import auth
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as core_logout
 
 # Create your views here.
-
+"""Login Views"""
 def login(request):
     if request.method == 'POST':
-        Username = request.POST.get('username')
-        Password = request.POST['password']
+        form = LoginForm(data = request.POST)
+        if form.is_valid():
+            return redirect('home')
 
-        user = auth.authenticate(username=Username,password=Password)
-
-        if user is not None:
-            auth.login(request,user)
-            return redirect('/home')
-        else:
-            pass
     else:
-        return render(request,'books/login.html')
+        form = LoginForm()
 
+    context = {'form': form}
+    return render(request, 'registration/login.html', context)
 
+"""Register views"""
 def register(request):
     if request.method != 'POST':
         form = registerform()
@@ -33,4 +32,9 @@ def register(request):
             return redirect('users:login')
 
     context = {'form': form}
-    return render(request, 'books/register.html', context)
+    return render(request, 'registration/register.html', context)
+
+"""Logging out views"""
+def logged_out(request):
+    core_logout(request)
+    return redirect('books:index')

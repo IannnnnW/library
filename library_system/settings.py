@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'books',
     'users',
 
+    #Third party apps
+    'crispy_forms',
+
     #Default Apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
+    
 ]
 
 MIDDLEWARE = [
@@ -86,15 +89,18 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'vinxdb',
+        'NAME': 'Library_9',
         'USER': 'postgres',
-        'PASSWORD':'1234',
+        'PASSWORD':'12345',
         'HOST': 'localhost',
         'PORT': '5432',
+<<<<<<< HEAD
     }
     
+=======
+        }
+>>>>>>> acb7c7c8e1346d674627fa1bdac796f00658a746
 }
-
 
 
 # Password validation
@@ -146,3 +152,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
+
+#My Settings
+LOGIN_URL = 'users:login'
+LOGOUT_REDIRECT_URL = "books:index"

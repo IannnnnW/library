@@ -1,13 +1,13 @@
 .menu-wrap{
 position:fixed;
 top:0;
-right:0;
+left:98%;
 z-index:1;
 }
 .menu-wrap .toggler{
 position:absolute;
 top:0;
-right:0;
+left:0;
 z-index:2;
 cursor:pointer;
 height:50px;
@@ -17,11 +17,11 @@ opacity:0;
 .menu-wrap .hamburger{
 position:absolute;
 top:0;
-right:0;
-height:60px;
-width:60px;
+left:0;
+height:50px;
+width:50px;
 z-index:1;
-padding:2rem;
+padding:1rem;
 background:orange;
 display:flex;
 align-items:center;
@@ -32,7 +32,7 @@ position:relative;
 flex:none;
 background:#fff;
 height:2px;
-width:100%;
+width:150%;
 display:flex;
 align-items:center;
 justify-content:center;
