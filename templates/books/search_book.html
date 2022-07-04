@@ -14,15 +14,29 @@
                     <div class="col col-xs-10 col-md-8">
                         <p class="text-responsive">{{ b.description }}</p> <br>
                         <h5 class="text-dark">Status: {{ b.status }}</h5>
-                        <button class="btn mb-3 btn-outline-warning float-right btn-sm border rounded">BORROW</button><br>
+                        <button class="btn mb-3 float-right btn-sm rounded" data-toggle="modal" data-target="#myModal">BORROW</button><br>
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
             </div>
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Congratulations</h5>
+                      <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      You have successfully borrowed {{ b }}
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
         {% endfor %}
     {% else %}
         <h1>Unfortunately the book you have searched for is unavailable!</h1>
     {% endif %}
-
-
 {% endblock content %}
