@@ -5,12 +5,14 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request, 'books/index.html')
 
+"""Defining views for the home page"""
 @login_required
 def home(request):
     books = Book.objects.all()
     context = {'books':books}
     return render(request, 'books/home.html', context)
 
+"""Defining views for the search_book page"""
 @login_required
 def search_book(request):
     if request.method == "POST":
@@ -25,6 +27,7 @@ def search_book(request):
 def borrow(request, pk):
     return render(request, 'books/borrow.html')
 
+"""Defining views for the profile page"""
 @login_required
 def profile(request):
     return render(request, 'books/profile.html')

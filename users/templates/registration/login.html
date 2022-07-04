@@ -28,7 +28,7 @@
       <form class="form" method="POST" action="{% url 'users:login' %}">
         {% csrf_token %} 
         {{ form|crispy }}
-        <p>Don't have an account? Create one <a href="users/register">here</a></p>
+        <p>Don't have an account? Create one <a href="{% url 'users:register' %}">here</a></p>
         <div class="text-center">
           <button name="submit" class="btn btn-warning">Log in</button>
         </div>
