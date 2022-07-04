@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'books',
     'users',
 
+    #Third party apps
+    'crispy_forms',
+
     #Default Apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
+    
 ]
 
 MIDDLEWARE = [
@@ -86,41 +89,12 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-<<<<<<< HEAD
         'NAME': 'Library_9',
         'USER': 'postgres',
         'PASSWORD':'12345',
+        'HOST': 'localhost',
+        'PORT': '5432',
         }
-=======
-<<<<<<< HEAD
-        'NAME': 'book_library',
-        'USER': 'postgres',
-        'PASSWORD':'ilikedj48',
-        'HOST': 'localhost',
-        'PORT': '5432',
-
-=======
-<<<<<<< HEAD
-        'NAME': 'Library_9',
-        'USER': 'postgres',
-        'PASSWORD':'12345',
-=======
-<<<<<<< HEAD
-        'NAME': 'book_library',
-        'USER': 'postgres',
-        'PASSWORD':'ilikedj48',
-=======
-        'NAME': 'vinxdb',
-        'USER': 'postgres',
-        'PASSWORD':'1234',
->>>>>>> 8cd3161f2fa0c1132fe85b42d2bc28fe079b4a7b
->>>>>>> d0d6004340c022523d453428cd00cf7aa3ee489e
-        'HOST': 'localhost',
-        'PORT': '5432',
->>>>>>> a23063ac941c7a4a94b5ac2113c4e52c80ef46e9
-    }
-    
->>>>>>> ee397d61a5124ffb3716fc8d445db0fb1f133743
 }
 
 
@@ -176,3 +150,4 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 
 #My Settings
 LOGIN_URL = 'users:login'
+LOGOUT_REDIRECT_URL = "books:index"
