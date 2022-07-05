@@ -54,3 +54,8 @@ class IssuedBook(models.Model):
 
   def __str__(self):
     return self.book_num
+
+
+class borrowed_books(models.Model):
+  pass
+6

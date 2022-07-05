@@ -26,6 +26,7 @@ def search_book(request):
         return render(request, 'books/search_book.html')
 
 def borrow(request, pk):
+    
     return render(request, 'books/borrow.html')
 
 """Defining views for the profile page"""
@@ -49,12 +50,7 @@ def borrowed_book(request):
             li.append(t)
         
     return render(request, 'books/borrowed_book.html')
-<<<<<<< HEAD
-
-
-=======
 @login_required
->>>>>>> fc973d6499b9202c19c196201433af6be8927c83
 def returned_book(request):
     return render(request, 'books/returned_book.html')
 @login_required
