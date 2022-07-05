@@ -53,13 +53,12 @@ def borrowed_book(request):
             li.append(t)
         
     return render(request, 'books/borrowed_book.html')
-<<<<<<< HEAD
-
-
-=======
 @login_required
+<<<<<<< HEAD
+=======
 >>>>>>> fc973d6499b9202c19c196201433af6be8927c83
 >>>>>>> eddbc6bff3b8bafdf43cffa9a39d6858120d81c8
+>>>>>>> e90cb638a0e524997feda3715d185ba32488fac4
 def returned_book(request):
     return render(request, 'books/returned_book.html')
 @login_required

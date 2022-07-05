@@ -88,26 +88,30 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
-        'ENGINE':'django.db.backends.sqlite3',
-        'NAME':BASE_DIR / 'db.sqlite3',
-    }
-=======
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+<<<<<<< HEAD
+        'NAME': 'Library_9',
+        'USER': 'postgres',
+        'PASSWORD':'12345',
+=======
 
         'NAME': 'book_library',
         'USER': 'postgres',
         'PASSWORD':'ilikedj48',
+>>>>>>> e90cb638a0e524997feda3715d185ba32488fac4
         'HOST': 'localhost',
         'PORT': '5432',
 
     }
     
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
 =======
 >>>>>>> fc973d6499b9202c19c196201433af6be8927c83
 >>>>>>> a1af71a1e17cde5db34a888aba255094342ede95
+>>>>>>> e90cb638a0e524997feda3715d185ba32488fac4
 }
 
 
