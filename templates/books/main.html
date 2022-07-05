@@ -27,7 +27,7 @@
                     <ul>
                         {% if user.is_authenticated %}
                             <h1 class = "text-warning">Hello, <span class="text-white">{{ user }}</span></h1>
-                            <li><a class = "text_secondary" href="home">Home</a></li>
+                            <li><a class = "text_secondary" href="{% url 'books:home' %}">Home</a></li>
                             <li><a href="{% url 'books:profile' %}">Profile</a></li>
                             <li><a href="{% url 'users:logout' %}">Logout</a></li>
                         {% endif %}
