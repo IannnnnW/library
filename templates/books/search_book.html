@@ -5,21 +5,6 @@
     {% if searched %}
         <h1>You searched for "{{ searched }}"</h1><br>
         {% for b in books %}
-<<<<<<< HEAD
-            <div class="card mb-3">
-                <div class="row g-0">
-                  <div class="col col-xs-10 col-md-8 col-lg-4">
-                    <img src="{{b.image.url}}">
-                  </div>
-                  <div class="col col-xs-10 col-md-8">
-                    <div class="card-body">
-                      <h2 class="text-warning"><u>{{ b }}</u> <br></h2>
-                      <p class="text-responsive">{{ b.description }}</p> <br>
-                      <p class="card-text"><small class="text-muted">Status: {{ b.status }}</small></p>
-                      <button class="btn mb-3 btn-outline-warning float-right btn-sm border rounded" data-toggle="modal" data-target="#exampleModalCenter">
-                        BORROW
-                      </button>
-=======
             <div class="container mb-5">
                 <div class="row">
                     <h2 class="text-warning"><u>{{ b }}</u> <br></h2>
@@ -30,7 +15,6 @@
                         <p class="text-responsive">{{ b.description }}</p> <br>
                         <h5 class="text-dark">Status: {{ b.status }}</h5>
                         <button class="btn mb-3 float-right btn-sm rounded">BORROW</button><br>
->>>>>>> 3f5eda230bdfa64e727e0ed7e7f84cdbfedea265
                     </div>
                   </div>
                   <div class="dropdown-divider"></div>
@@ -41,8 +25,4 @@
     {% else %}
         <h1>Unfortunately the book you have searched for is unavailable!</h1>
     {% endif %}
-<<<<<<< HEAD
-
-=======
->>>>>>> 3f5eda230bdfa64e727e0ed7e7f84cdbfedea265
 {% endblock content %}
