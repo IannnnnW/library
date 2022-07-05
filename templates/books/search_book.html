@@ -6,17 +6,6 @@
         <h1>You searched for "{{ searched }}"</h1><br>
         {% for b in books %}
 <<<<<<< HEAD
-            <div class="container mb-5">
-                <div class="row">
-                    <h2 class="text-warning"><u>{{ b }}</u> <br></h2>
-                    <div class="col col-xs-10 col-md-8 col-lg-4">
-                        <img src="{{b.image.url}}">
-                    </div>
-                    <div class="col col-xs-10 col-md-8">
-                        <p class="text-responsive">{{ b.description }}</p> <br>
-                        <h5 class="text-dark">Status: {{ b.status }}</h5>
-                        <button class="btn mb-3 float-right btn-sm rounded" data-toggle="modal" data-target="#myModal">BORROW</button><br>
-=======
             <div class="card mb-3">
                 <div class="row g-0">
                   <div class="col col-xs-10 col-md-8 col-lg-4">
@@ -27,41 +16,33 @@
                       <h2 class="text-warning"><u>{{ b }}</u> <br></h2>
                       <p class="text-responsive">{{ b.description }}</p> <br>
                       <p class="card-text"><small class="text-muted">Status: {{ b.status }}</small></p>
-                      <button class="btn mb-3 btn-outline-warning float-right btn-sm border rounded">BORROW</button><br>
->>>>>>> ed1efdddef21eed6a046140558ea252e935c9c78
+                      <button class="btn mb-3 btn-outline-warning float-right btn-sm border rounded" data-toggle="modal" data-target="#exampleModalCenter">
+                        BORROW
+                      </button>
+=======
+            <div class="container mb-5">
+                <div class="row">
+                    <h2 class="text-warning"><u>{{ b }}</u> <br></h2>
+                    <div class="col col-xs-10 col-md-8 col-lg-4">
+                        <img src="{{b.image.url}}">
+                    </div>
+                    <div class="col col-xs-10 col-md-8">
+                        <p class="text-responsive">{{ b.description }}</p> <br>
+                        <h5 class="text-dark">Status: {{ b.status }}</h5>
+                        <button class="btn mb-3 float-right btn-sm rounded">BORROW</button><br>
+>>>>>>> 3f5eda230bdfa64e727e0ed7e7f84cdbfedea265
                     </div>
                   </div>
                   <div class="dropdown-divider"></div>
                 </div>
-<<<<<<< HEAD
                 <div class="dropdown-divider"></div>
             </div>
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Congratulations</h5>
-                      <button class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                      You have successfully borrowed {{ b }}
-                    </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                </div>
-=======
->>>>>>> ed1efdddef21eed6a046140558ea252e935c9c78
-              </div>
         {% endfor %}
     {% else %}
         <h1>Unfortunately the book you have searched for is unavailable!</h1>
     {% endif %}
 <<<<<<< HEAD
-{% endblock content %}
+
 =======
-
-
+>>>>>>> 3f5eda230bdfa64e727e0ed7e7f84cdbfedea265
 {% endblock content %}
->>>>>>> ed1efdddef21eed6a046140558ea252e935c9c78
