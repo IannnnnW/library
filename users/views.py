@@ -1,9 +1,18 @@
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
+from .forms import registerform
+from django.contrib.auth.models import auth
+from django.contrib.auth import login as auth_login
+from .forms import registerform, LoginForm
+from django.contrib.auth.forms import AuthenticationForm
+
+=======
 from .forms import registerform, LoginForm
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import registerform
 from django.contrib.auth.models import auth
 from django.contrib.auth import logout as core_logout
+>>>>>>> fc973d6499b9202c19c196201433af6be8927c83
 
 # Create your views here.
 """Login Views"""
@@ -13,6 +22,16 @@ def login(request):
         if form.is_valid():
             return redirect('home')
 
+<<<<<<< HEAD
+        user = auth.authenticate(username=Username,password=Password)
+
+        if user is not None:
+            auth.login(request,user)
+            return redirect('/home')
+        else:
+            pass
+=======
+>>>>>>> fc973d6499b9202c19c196201433af6be8927c83
     else:
         form = LoginForm()
 
