@@ -51,3 +51,9 @@ class IssuedBook(models.Model):
   issued_date = models.DateField(auto_now = True)
   return_date = models.DateField(default=get_return_date)
   pickup_time = models.DateTimeField(default=book_time_limit)
+<<<<<<< HEAD
+=======
+
+  def __str__(self):
+    return self.book_num
+>>>>>>> eddbc6bff3b8bafdf43cffa9a39d6858120d81c8
