@@ -88,18 +88,9 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Library_9',
-        'USER': 'postgres',
-        'PASSWORD':'12345',
-        'HOST': 'localhost',
-        'PORT': '5432',
-<<<<<<< HEAD
+        'ENGINE':'django.db.backends.sqlite3',
+        'NAME':BASE_DIR / 'db.sqlite3',
     }
-    
-=======
-        }
->>>>>>> acb7c7c8e1346d674627fa1bdac796f00658a746
 }
 
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from . import models
 from .models import Book
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -33,7 +34,22 @@ def profile(request):
     return render(request, 'books/profile.html')
 
 def borrowed_book(request):
+    issuedbooks = models.IssuedBook.objects.all()
+    li = []
+    for book in issuedbooks:
+        issuedate = str(book.issued_date.day)+'-'+str(book.issued_date.month)+'-'+str(book.issued_date.year)
+        return_date = str(book.return_date.day)+'-'+str(book.return_date.month)+'-'+str(book.return_date.year)
+
+        books = list(models.Book.objects.filter(book_num = book.book_num))
+        students = list(models.Borrower.objects.filter(reg_no = book.reg_no))
+        i = 0
+        for li in books:
+            t = (students[i].get_name, students[i].reg_no, books[i].name, books[i].author, issuedate, return_date)
+            i += 1
+            li.append(t)
+        
     return render(request, 'books/borrowed_book.html')
+
 
 def returned_book(request):
     return render(request, 'books/returned_book.html')

@@ -18,32 +18,25 @@
     <title>The Book Library</title>
 </head>
 <body>
-  <nav class="navbar mb-auto navbar-expand-lg navbar-dark bg-dark fixed-top mb-4 border">
-		<a class="navbar-brand border-md-right" href="home">
-			<h4 class=" display-6 text-warning">TBL</h4>
-		</a>
-		<div class = "ml-auto">
-			<h4 class = "display-6 text-light">Hello {{ user }}</h4>
-		</div>
-		<button class="navbar-toggler" 
-				type="button" 
-				data-toggle="collapse"
-				data-target="#navbarNavDropdown"
-				aria-controls="navbarNavDropdown"
-				aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="ml-auto">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<a class="nav-link active text-warning" href="{% url 'books:profile' %}">Profile</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-	{% block content %}
-	
-	{% endblock %}
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger"><div></div></div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        {% if user.is_authenticated %}
+                            <h1 class = "text-warning">Hello, <span class="text-white">{{ user }}</span></h1>
+                            <li><a class = "text_secondary" href="{% url 'books:home' %}">Home</a></li>
+                            <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    
+    
+    {% endblock content%}
 </body>
-</html>

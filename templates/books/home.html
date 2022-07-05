@@ -12,13 +12,9 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
             <p><small>Which book are you interested in?</small></p>
         </div>
     </div>
-<<<<<<< HEAD
 
     <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:search_book' %}">
 
-=======
-    <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:search_book' %}">
->>>>>>> acb7c7c8e1346d674627fa1bdac796f00658a746
         {% csrf_token %}
         <input class="form-control mr-2" type="search py-3" placeholder="Search for your Book" name="searched">
         <button class = "btn btn-sm btn-warning" type="submit" >Search</button>
