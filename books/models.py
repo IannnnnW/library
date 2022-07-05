@@ -58,4 +58,3 @@ class IssuedBook(models.Model):
 
 class borrowed_books(models.Model):
   pass
-6
