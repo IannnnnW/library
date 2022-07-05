@@ -32,7 +32,7 @@ def borrow(request, pk):
 @login_required
 def profile(request):
     return render(request, 'books/profile.html')
-
+@login_required
 def borrowed_book(request):
     issuedbooks = models.IssuedBook.objects.all()
     li = []
@@ -49,14 +49,18 @@ def borrowed_book(request):
             li.append(t)
         
     return render(request, 'books/borrowed_book.html')
+<<<<<<< HEAD
 
 
+=======
+@login_required
+>>>>>>> fc973d6499b9202c19c196201433af6be8927c83
 def returned_book(request):
     return render(request, 'books/returned_book.html')
-
+@login_required
 def notifications(request):
     return render(request, 'books/notifications.html')
-
+@login_required
 def fines(request):
     return render(request, 'books/fines.html')
 
