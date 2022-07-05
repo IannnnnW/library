@@ -25,10 +25,12 @@
             <div>
                 <div>
                     <ul>
-						<h1 class = "text-warning">Hello, {{ user }}</h1>
-                        <li><a class = "text_secondary" href="home">Home</a></li>
-                        <li><a href="books/profile">Profile</a></li>
-                        <li><a href="#">Logout</a></li>
+                        {% if user.is_authenticated %}
+                            <h1 class = "text-warning">Hello, <span class="text-white">{{ user }}</span></h1>
+                            <li><a class = "text_secondary" href="home">Home</a></li>
+                            <li><a href="{% url 'books:profile' %}">Profile</a></li>
+                            <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
