@@ -34,6 +34,10 @@ def profile(request):
     return render(request, 'books/profile.html')
 @login_required
 def borrowed_book(request):
+<<<<<<< HEAD
+    return render(request, 'books/borrowed_book.html')
+@login_required
+=======
     issuedbooks = models.IssuedBook.objects.all()
     li = []
     for book in issuedbooks:
@@ -55,6 +59,7 @@ def borrowed_book(request):
 =======
 @login_required
 >>>>>>> fc973d6499b9202c19c196201433af6be8927c83
+>>>>>>> eddbc6bff3b8bafdf43cffa9a39d6858120d81c8
 def returned_book(request):
     return render(request, 'books/returned_book.html')
 @login_required
