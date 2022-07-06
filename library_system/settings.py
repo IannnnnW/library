@@ -88,6 +88,7 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
@@ -99,6 +100,11 @@ DATABASES = {
 
     }
 
+=======
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3.db',
+    }
+>>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
 }
 
 # Password validation

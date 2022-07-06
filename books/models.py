@@ -6,7 +6,6 @@ from datetime import *
 class Book(models.Model):
   CATEGORY = [
     ('education', 'Education'),
-    ('entertainment', 'Entertainment'),
     ('comics', 'Comics'),
     ('biography', 'Biography'),
     ('history', 'History'),
@@ -37,7 +36,12 @@ class Borrower(models.Model):
   last_name = models.CharField(max_length=30)
   book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
   reg_no = models.CharField(max_length=20)
+<<<<<<< HEAD
   
+=======
+  class Meta:
+    verbose_name_plural = 'borrowers'
+>>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
 
   def __str__(self):
     return str(self.first_name)+"["+str(self.book_num)+']'
@@ -53,7 +57,12 @@ class IssuedBook(models.Model):
   issued_date = models.DateField(auto_now = True)
   return_date = models.DateField(default=get_return_date)
   pickup_time = models.DateTimeField(default=book_time_limit)
+<<<<<<< HEAD
   borrower = models.CharField(max_length= 200)
+=======
+  class Meta:
+    verbose_name_plural = 'issuedbooks'
+>>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
 
   def __str__(self):
     return self.book_name
