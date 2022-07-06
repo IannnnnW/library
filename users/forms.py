@@ -5,14 +5,15 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 class LoginForm(AuthenticationForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update(
-        {'class': 'my-username-class'}
-        )
-        self.fields['password'].widget.attrs.update(
-        {'class': 'my-password-class'}
-        )
+    pass
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields['username'].widget.attrs.update(
+    #     {'class': 'my-username-class'}
+    #     )
+    #     self.fields['password'].widget.attrs.update(
+    #     {'class': 'my-password-class'}
+    #     )
 
 
 class registerform(UserCreationForm):

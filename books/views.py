@@ -2,6 +2,8 @@ from django.shortcuts import render
 from . import models
 from .models import Book
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+
 # Create your views here.
 def index(request):
     return render(request, 'books/index.html')
@@ -19,25 +21,30 @@ def search_book(request):
     if request.method == "POST":
         searched = request.POST['searched']
         books = Book.objects.filter(title__icontains=searched)
-        context = {'searched':searched,'books':books }
+        context = { 'searched':searched,'books':books }
 
         return render(request, 'books/search_book.html', context)
     else:
         return render(request, 'books/search_book.html')
 
-def borrow(request, pk):
-    return render(request, 'books/borrow.html')
+@login_required
+def borrow(request):
+    if request.method == "POST":
+        clicked = request.POST['clicked']
+        books = Book.objects.filter(title__icontains=clicked)
+        context = { 'clicked':clicked, 'books':books }
+
+        return render(request, 'books/borrow.html', context)
+    else:
+        return render(request, 'books/borrow.html')
 
 """Defining views for the profile page"""
 @login_required
 def profile(request):
     return render(request, 'books/profile.html')
+
 @login_required
 def borrowed_book(request):
-<<<<<<< HEAD
-    return render(request, 'books/borrowed_book.html')
-@login_required
-=======
     issuedbooks = models.IssuedBook.objects.all()
     li = []
     for book in issuedbooks:
@@ -53,20 +60,15 @@ def borrowed_book(request):
             li.append(t)
         
     return render(request, 'books/borrowed_book.html')
+
 @login_required
-<<<<<<< HEAD
-=======
->>>>>>> fc973d6499b9202c19c196201433af6be8927c83
->>>>>>> eddbc6bff3b8bafdf43cffa9a39d6858120d81c8
->>>>>>> e90cb638a0e524997feda3715d185ba32488fac4
 def returned_book(request):
     return render(request, 'books/returned_book.html')
+
 @login_required
 def notifications(request):
     return render(request, 'books/notifications.html')
-@login_required
-def fines(request):
-    return render(request, 'books/fines.html')
+
 
 
 
