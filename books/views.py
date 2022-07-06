@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from . import models
 from .models import Book
 from django.contrib.auth.decorators import login_required
+from .models import *
+from datetime import *
 from django.urls import reverse
 
 # Create your views here.
@@ -38,10 +40,31 @@ def borrow(request):
     else:
         return render(request, 'books/borrow.html')
 
+def get_return_date():
+  return datetime.today() + timedelta(days = 14)
+
+def book_time_limit():
+  return datetime.now() + timedelta(hours=6)
+
+@login_required
+def confirm_borrow(request,id):
+    book = Book.objects.get(id=id)
+    borrower = Borrower(first_name=request.user.first_name,last_name=request.user.lastname,book_name=book.title,reg_no=request.user)
+    borrower.save()
+    issued_book 
+    issued_book = IssuedBook(book_name = book.title,issued_date = datetime.now(),return_date=get_return_date() ,pickup_time = book_time_limit() )
+    issued_book.save()
+
+    
+    return redirect('books:index')
+
+
+
 """Defining views for the profile page"""
 @login_required
 def profile(request):
     return render(request, 'books/profile.html')
+
 
 @login_required
 def borrowed_book(request):
@@ -60,6 +83,7 @@ def borrowed_book(request):
             li.append(t)
         
     return render(request, 'books/borrowed_book.html')
+    
 
 @login_required
 def returned_book(request):
@@ -68,6 +92,16 @@ def returned_book(request):
 @login_required
 def notifications(request):
     return render(request, 'books/notifications.html')
+@login_required
+def fines(request):
+    if request.method == 'POST':
+        fines = Fines.objects.all()
+
+
+    else:
+        pass
+    
+    return render(request, 'books/fines.html')
 
 
 

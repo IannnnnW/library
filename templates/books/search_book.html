@@ -5,11 +5,21 @@
     {% if searched in books %}
         <h1>You searched for "{{ searched }}"</h1><br>
         {% for b in books %}
+<<<<<<< HEAD
+            <div class="container mb-5">
+=======
             <div class="card">
+>>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
                 <div class="row">
                     <div class="col col-xs-10 col-md-8 col-lg-4">
                         <img src="{{b.image.url}}">
                     </div>
+<<<<<<< HEAD
+                    <div class="col col-xs-10 col-md-8">
+                        <p class="text-responsive">{{ b.description }}</p> <br>
+                        <h5 class="text-dark">Status: {{ b.status }}</h5>
+                        <button class="btn mb-3 float-right btn-sm rounded">BORROW</button><br>
+=======
                     <div class="col ">
                         <div class="card-body">
                             <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:borrow' %}">
@@ -23,6 +33,7 @@
                                 </form>
                             </div>
                         </div>
+>>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
                     </div>
                 </div>
             </div>
