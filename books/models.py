@@ -32,10 +32,10 @@ class Book(models.Model):
     return self.title
 
 class Borrower(models.Model):
-  first_name = models.CharField(max_length=30)
-  last_name = models.CharField(max_length=30)
-  book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
-  reg_no = models.CharField(max_length=20)
+  first_name = models.CharField(max_length=300)
+  last_name = models.CharField(max_length=300)
+  book_name = models.CharField(max_length=300)
+  reg_no = models.CharField(max_length=200)
   class Meta:
     verbose_name_plural = 'borrowers'
 
@@ -49,7 +49,7 @@ def book_time_limit():
   return datetime.now() + timedelta(hours=6)
 
 class IssuedBook(models.Model):
-  book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
+  book_name = models.CharField(max_length= 200)
   issued_date = models.DateField(auto_now = True)
   return_date = models.DateField(default=get_return_date)
   pickup_time = models.DateTimeField(default=book_time_limit)
