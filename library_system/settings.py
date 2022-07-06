@@ -91,9 +91,9 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'book_library',
+        'NAME': 'vinxdb',
         'USER': 'postgres',
-        'PASSWORD':'ilikedj48',
+        'PASSWORD':'1234',
         'HOST': 'localhost',
         'PORT': '5432',
 
