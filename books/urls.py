@@ -9,11 +9,10 @@ urlpatterns = [
     path('', views.index, name = 'index'),
     path('home/' ,views.home, name = 'home'),
     path('search_book/' ,views.search_book, name = 'search_book'),
-    path('book/<int:pk>/' ,views.borrow, name = 'book'),
+    path('borrow/' ,views.borrow, name = 'borrow'),
     path('profile/', views.profile, name = 'profile'),
-    path('borrowed_book', views.borrowed_book, name = 'borrowed_book'),
-    path('returned_book', views.returned_book, name = 'returned_book'),
+    path('borrowed_book/', views.borrowed_book, name = 'borrowed_book'),
+    path('returned_book/', views.returned_book, name = 'returned_book'),
     path('notifications', views.notifications, name = 'notifications'),
-    path('fines', views.fines, name = 'fines'),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
