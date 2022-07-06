@@ -2,6 +2,7 @@ from django.shortcuts import render
 from . import models
 from .models import Book
 from django.contrib.auth.decorators import login_required
+from .models import *
 # Create your views here.
 def index(request):
     return render(request, 'books/index.html')
@@ -26,6 +27,7 @@ def search_book(request):
         return render(request, 'books/search_book.html')
 
 def borrow(request, pk):
+
     
     return render(request, 'books/borrow.html')
 
