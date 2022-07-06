@@ -2,13 +2,10 @@ from django.shortcuts import render,redirect
 from . import models
 from .models import Book
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
 from .models import *
 from datetime import *
-=======
 from django.urls import reverse
 
->>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
 # Create your views here.
 def index(request):
     return render(request, 'books/index.html')
@@ -68,10 +65,7 @@ def confirm_borrow(request,id):
 def profile(request):
     return render(request, 'books/profile.html')
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
 @login_required
 def borrowed_book(request):
     issuedbooks = models.IssuedBook.objects.all()
@@ -89,11 +83,8 @@ def borrowed_book(request):
             li.append(t)
         
     return render(request, 'books/borrowed_book.html')
-<<<<<<< HEAD
     
-=======
 
->>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
 @login_required
 def returned_book(request):
     return render(request, 'books/returned_book.html')
@@ -101,7 +92,6 @@ def returned_book(request):
 @login_required
 def notifications(request):
     return render(request, 'books/notifications.html')
-<<<<<<< HEAD
 @login_required
 def fines(request):
     if request.method == 'POST':
@@ -112,9 +102,7 @@ def fines(request):
         pass
     
     return render(request, 'books/fines.html')
-=======
 
->>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
 
 
 

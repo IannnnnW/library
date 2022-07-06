@@ -1,13 +1,10 @@
 from django.shortcuts import render, redirect
-<<<<<<< HEAD
-=======
 from .forms import registerform
 from django.contrib.auth.models import auth
 from django.contrib.auth import login as auth_login
 from .forms import registerform, LoginForm
 from django.contrib.auth.forms import AuthenticationForm
 
->>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
 from .forms import registerform, LoginForm
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import registerform
@@ -22,8 +19,6 @@ def login(request):
         if form.is_valid():
             return redirect('home')
 
-<<<<<<< HEAD
-=======
         user = auth.authenticate(username=Username,password=Password)
 
         if user is not None:
@@ -31,7 +26,6 @@ def login(request):
             return redirect('/home')
         else:
             pass
->>>>>>> 6aac15ccd9d65695bf9bfc7ff48ac9cf97f3ccc6
     else:
         form = LoginForm()
 
