@@ -43,7 +43,7 @@ def confirm_borrow(request,id):
     borrower.save()
     issued_book 
     issued_book = IssuedBook(book_name = book.title,issued_date = datetime.now(),return_date=get_return_date() ,pickup_time = book_time_limit() )
-    issued_book
+    issued_book.save()
 
     
     return redirect('books:index')

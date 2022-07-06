@@ -15,5 +15,7 @@ urlpatterns = [
     path('returned_book', views.returned_book, name = 'returned_book'),
     path('notifications', views.notifications, name = 'notifications'),
     path('fines', views.fines, name = 'fines'),
+    path('search_book/confirm_borrow', views.confirm_borrow, name = 'confirm_borrow'),
+    
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
