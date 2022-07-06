@@ -1,8 +1,8 @@
-{% extends 'books/main.html' %}
+{% include 'books/main.html' %}
 <br>
 <br>
 {% block content %}
-    {% if searched %}
+    {% if searched in books %}
         <h1>You searched for "{{ searched }}"</h1><br>
         {% for b in books %}
             <div class="card">
