@@ -88,6 +88,7 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
 
         'ENGINE': 'django.db.backends.postgresql',
 
@@ -97,8 +98,11 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
 
+=======
+        'ENGINE':'django.db.backends.sqlite3',
+        'NAME':os.path.join(BASE_DIR, 'db.sqlite3')
+>>>>>>> 244c892251f9be20c7a801d7bc5d6a61878ee3cc
     }
-
 }
 
 # Password validation

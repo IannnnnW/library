@@ -9,8 +9,11 @@ app_name = 'users'
 urlpatterns = [
     #login and register Page
     path('', include('django.contrib.auth.urls')),
+    #Login page urls
     path('login/', LoginView.as_view(authentication_form = LoginForm), name = 'login'),
+    #Logged out page urls
     path("logged_out/", views.logged_out, name ='logged_out'),
+    #Register page urls
     path("register/", views.register, name = 'register'),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
