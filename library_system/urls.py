@@ -19,8 +19,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    #Admin site urls
     path('admin/', admin.site.urls),
     path('', include('books.urls')),
+    #Users in the django admin site
     path('users/', include('users.urls')),
 ]
 
