@@ -88,17 +88,18 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Library_9',
+
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': 'book_library3',
         'USER': 'postgres',
-        'PASSWORD':'12345',
+        'PASSWORD':'1234',
         'HOST': 'localhost',
         'PORT': '5432',
 
     }
-    
-}
 
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

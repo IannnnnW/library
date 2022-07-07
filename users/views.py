@@ -5,6 +5,7 @@ from django.contrib.auth import login as auth_login
 from .forms import registerform, LoginForm
 from django.contrib.auth import logout as core_logout
 
+
 # Create your views here.
 """Login Views"""
 def login(request):
@@ -13,13 +14,13 @@ def login(request):
         if form.is_valid():
             return redirect('home')
 
-        user = auth.authenticate(username=Username,password=Password)
+        # user = auth.authenticate(username=Username,password=Password)
 
-        if user is not None:
-            auth.login(request,user)
-            return redirect('/home')
-        else:
-            pass
+        # if user is not None:
+        #     auth.login(request,user)
+        #     return redirect('/home')
+        # else:
+        #     pass
     else:
         form = LoginForm()
 

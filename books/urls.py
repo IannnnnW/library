@@ -1,4 +1,3 @@
-import profile
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
@@ -20,5 +19,10 @@ urlpatterns = [
     path('returned_book/', views.returned_book, name = 'returned_book'),
     #Notifications book page in the profile
     path('notifications', views.notifications, name = 'notifications'),
+    #Fines page
+    path('fines', views.fines, name = 'fines'),
+    #Confirm borrow page
+    path('confirm_borrow/<int:id>', views.confirm_borrow, name = 'confirm_borrow'),
+    
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
