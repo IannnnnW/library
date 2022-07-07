@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 
 # Create your views here.
+"""Views for the very first page of the library system"""
 def index(request):
     return render(request, 'books/index.html')
 
