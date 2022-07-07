@@ -3,6 +3,7 @@ from django.forms import CharField
 from datetime import *
 
 # Create your models here.
+"""Model that stores the library books"""
 class Book(models.Model):
   CATEGORY = [
     ('education', 'Education'),
@@ -31,6 +32,7 @@ class Book(models.Model):
   def __str__(self):
     return self.title
 
+"""Model for the Users borrowing books"""
 class Borrower(models.Model):
   first_name = models.CharField(max_length=300)
   last_name = models.CharField(max_length=300)
@@ -42,12 +44,15 @@ class Borrower(models.Model):
   def __str__(self):
     return str(self.first_name)+"["+str(self.book_name)+']'
 
+"""Function to define the return date of the book"""
 def get_return_date():
   return datetime.today() + timedelta(days = 14)
 
+"""Function to define the amount of time for the user to pick the book"""
 def book_time_limit():
   return datetime.now() + timedelta(hours=6)
 
+"""Model for the books issued to a borrower"""
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
   borrower = models.ForeignKey(Borrower, on_delete=models.CASCADE)
@@ -58,6 +63,7 @@ class IssuedBook(models.Model):
   def __str__(self):
     return self.book_name
 
+"""Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
   book_name = models.CharField(max_length= 200)
   issued_date = models.DateField(auto_now = True)
