@@ -3,12 +3,6 @@ from .forms import registerform
 from django.contrib.auth.models import auth
 from django.contrib.auth import login as auth_login
 from .forms import registerform, LoginForm
-from django.contrib.auth.forms import AuthenticationForm
-
-from .forms import registerform, LoginForm
-from django.contrib.auth.forms import AuthenticationForm
-from .forms import registerform
-from django.contrib.auth.models import auth
 from django.contrib.auth import logout as core_logout
 
 # Create your views here.
