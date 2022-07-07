@@ -27,6 +27,7 @@ def search_book(request):
     else:
         return render(request, 'books/search_book.html')
 
+"""Defining views for the borrow page"""
 @login_required
 def borrow(request, book_id):
     clicked = Book.objects.get(id = book_id)
