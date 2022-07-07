@@ -49,6 +49,7 @@ def get_return_date():
 def book_time_limit():
   return datetime.now() + timedelta(hours=6)
 
+"""Model for the books issued to a borrower"""
 class IssuedBook(models.Model):
   book_num = models.ForeignKey(Book, on_delete=models.CASCADE)
   issued_date = models.DateField(auto_now = True)
