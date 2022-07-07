@@ -18,9 +18,9 @@ class LoginForm(AuthenticationForm):
 
 class registerform(UserCreationForm):
     email = forms.EmailField()
-    first_name=forms.CharField()
-    last_name=forms.CharField()
-    registration_number=forms.CharField(required=True)
+    first_name=forms.CharField(label="Full Name")
+    last_name=forms.CharField(label="Registration Number")
+    #registration_number=forms.CharField(required=True)
 
     class Meta:
         model = User

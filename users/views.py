@@ -5,11 +5,11 @@ from django.contrib.auth import login as auth_login
 from .forms import registerform, LoginForm
 from django.contrib.auth.forms import AuthenticationForm
 
-from .forms import registerform, LoginForm
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import registerform
 from django.contrib.auth.models import auth
 from django.contrib.auth import logout as core_logout
+
 
 # Create your views here.
 """Login Views"""
@@ -19,14 +19,23 @@ def login(request):
         if form.is_valid():
             return redirect('home')
 
-        user = auth.authenticate(username=Username,password=Password)
+        # user = auth.authenticate(username=Username,password=Password)
 
+<<<<<<< HEAD
         if user is not None:
             auth.login(request,user)
             return redirect('/home')
         else:
             pass
     else: 
+=======
+        # if user is not None:
+        #     auth.login(request,user)
+        #     return redirect('/home')
+        # else:
+        #     pass
+    else:
+>>>>>>> 3020b06325bb1fede8d18d8f45e8bb466022c27d
         form = LoginForm()
 
     context = {'form': form}
