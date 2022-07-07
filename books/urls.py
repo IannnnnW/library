@@ -5,8 +5,8 @@ from django.conf.urls.static import static
 from . import views
 app_name = 'books'
 urlpatterns = [
-    #Home Page
     path('', views.index, name = 'index'),
+    #Home Page
     path('home/' ,views.home, name = 'home'),
     path('search_book/' ,views.search_book, name = 'search_book'),
     path('borrow/<int:book_id>' ,views.borrow, name = 'borrow'),
