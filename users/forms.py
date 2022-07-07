@@ -4,6 +4,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
+#Login Form
 class LoginForm(AuthenticationForm):
     pass
     # def __init__(self, *args, **kwargs):
