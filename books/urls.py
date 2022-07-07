@@ -8,11 +8,17 @@ urlpatterns = [
     path('', views.index, name = 'index'),
     #Home Page
     path('home/' ,views.home, name = 'home'),
+    #Search page
     path('search_book/' ,views.search_book, name = 'search_book'),
+    #Borrow page
     path('borrow/<int:book_id>' ,views.borrow, name = 'borrow'),
+    #Profile page
     path('profile/', views.profile, name = 'profile'),
+    #Borrowed book page in the profile
     path('borrowed_book/', views.borrowed_book, name = 'borrowed_book'),
+    #Returned book page in the profile
     path('returned_book/', views.returned_book, name = 'returned_book'),
+    #Notifications book page in the profile
     path('notifications', views.notifications, name = 'notifications'),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
