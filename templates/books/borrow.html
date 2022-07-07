@@ -3,52 +3,51 @@
 
 {% block content %}
 <body class="mt-5">
-    {% if clicked %}
-        {% for b in books %}
-            <div class="container align-text-bottom">
-                <div class="media">
-                    <div class="row">
-                        <div class="col col-xs-12 col-md-4">
-                            <div class="card">
-                                <img class="card-img" src="{{b.image.url}}" alt="bookcover" class="img-responsive" />
-                            </div>
+    {% for b in books %}
+        <div class="container align-text-bottom">
+            <div class="media">
+                <div class="row">
+                    <div class="col col-xs-12 col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="{{b.image.url}}" alt="bookcover" class="img-responsive" />
                         </div>
-                        <div class="col col-xs-10 col-md-8">
-                            <div class="card-transparent">
-                                <div class="card-body">
-                                    <p><u><h3 class="text-warning text-responsive"> {{ b }} </h3></u></p>
-                                    <p class="text-white text-justify"> {{ b.description }} </p>
-                                    <br>
-                                    <br>
-                                    <div>
-                                        <span class="font-weight-bold text-warning">Author:</span>
-                                        <i class="text-white"> {{ b.author }} </i>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <span class="font-weight-bold text-warning">Genre:</span>
-                                        <i class="text-white"> {{ b.category }} </i>
-                                    </div>
-                                    <br>
-                                    <p><u><h5 class="text-warning">Related books</h5></u></p>
-                                    <ol class="text-white text-monospace">
-                                        <li>Vincent in wonderworld</li>
-                                        <li>Wasukira in the shady forest</li>
-                                        <li>Owen cruises through the lonely streets of campus</li>
-                                        <li>Nsenji the cave man</li>
-                                    </ol>
-                                    <br>
-                                    <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:confirm_borrow' %}">
-                                        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
-                                    </form>
+                    </div>
+                    <div class="col col-xs-10 col-md-8">
+                        <div class="card-transparent">
+                            <div class="card-body">
+                                <p><u><h3 class="text-warning text-responsive"> {{ b }} </h3></u></p>
+                                <p class="text-white text-justify"> {{ b.description }} </p>
+                                <br>
+                                <br>
+                                <div>
+                                    <span class="font-weight-bold text-warning">Author:</span>
+                                    <i class="text-white"> {{ b.author }} </i>
                                 </div>
+                                <br>
+                                <div>
+                                    <span class="font-weight-bold text-warning">Genre:</span>
+                                    <i class="text-white"> {{ b.category }} </i>
+                                </div>
+                                <br>
+                                <p><u><h5 class="text-warning">Related books</h5></u></p>
+                                <ol class="text-white text-monospace">
+                                    <li>Vincent in wonderworld</li>
+                                    <li>Wasukira in the shady forest</li>
+                                    <li>Owen cruises through the lonely streets of campus</li>
+                                    <li>Nsenji the cave man</li>
+                                </ol>
+                                <br>
+                                <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:confirm_borrow' %}">
+                                    {% csrf_token %}
+                                    <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        {% endfor %}
-    {% endif %}
+        </div>
+    {% endfor %}
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 crossorigin="anonymous"></script>

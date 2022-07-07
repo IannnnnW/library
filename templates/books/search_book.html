@@ -18,9 +18,7 @@
                             <p class="text-responsive">{{ b.description }}</p> <br>
                             <h5 class="text-dark">Status: {{ b.status }}</h5>
                             <div class="float-right">
-                                <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:borrow' %}">
-                                    <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded"><a href="{% url 'books:borrow' %}"> BORROW </a></button>
-                                </form>
+                                <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded"><a href="{% url 'books:borrow' book.id %}"> BORROW </a></button>
                             </div>
                         </div>
                     </div>

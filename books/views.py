@@ -28,15 +28,12 @@ def search_book(request):
         return render(request, 'books/search_book.html')
 
 @login_required
-def borrow(request):
-    if request.method == "POST":
-        clicked = request.POST['clicked']
-        books = Book.objects.filter(title__icontains=clicked)
-        context = { 'clicked':clicked, 'books':books }
+def borrow(request, book_id):
+    clicked = Book.objects.get(id = book_id)
+    books = Book.objects.filter(title__icontains=clicked)
+    context = { 'clicked':clicked, 'books':books }
 
-        return render(request, 'books/borrow.html', context)
-    else:
-        return render(request, 'books/borrow.html')
+    return render(request, 'books/borrow.html', context)
 
 """Defining views for the profile page"""
 @login_required
