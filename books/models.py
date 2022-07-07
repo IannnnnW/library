@@ -43,9 +43,11 @@ class Borrower(models.Model):
   def __str__(self):
     return str(self.first_name)+"["+str(self.book_num)+']'
 
+"""Function to define the return date of the book"""
 def get_return_date():
   return datetime.today() + timedelta(days = 14)
 
+"""Function to define the amount of time for the user to pick the book"""
 def book_time_limit():
   return datetime.now() + timedelta(hours=6)
 
