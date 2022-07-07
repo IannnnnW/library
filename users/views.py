@@ -21,21 +21,12 @@ def login(request):
 
         # user = auth.authenticate(username=Username,password=Password)
 
-<<<<<<< HEAD
-        if user is not None:
-            auth.login(request,user)
-            return redirect('/home')
-        else:
-            pass
-    else: 
-=======
         # if user is not None:
         #     auth.login(request,user)
         #     return redirect('/home')
         # else:
         #     pass
     else:
->>>>>>> 3020b06325bb1fede8d18d8f45e8bb466022c27d
         form = LoginForm()
 
     context = {'form': form}
