@@ -41,6 +41,7 @@ def borrow(request, book_id):
 def profile(request):
     return render(request, 'books/profile.html')
 
+"""Views for the borrowed book"""
 @login_required
 def borrowed_book(request):
     issuedbooks = models.IssuedBook.objects.all()
