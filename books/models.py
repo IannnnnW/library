@@ -2,6 +2,7 @@ from django.db import models
 from django.forms import CharField
 from datetime import *
 # Create your models here.
+"""Model that stores the library books"""
 class Book(models.Model):
   CATEGORY = [
     ('education', 'Education'),
