@@ -1,5 +1,4 @@
 {% load crispy_forms_tags %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,9 +21,12 @@
     <div class="showcase-container container">
         <form method="POST" class="form-group">
             {% csrf_token %}
+<<<<<<< HEAD
             {{ form|crispy }}
+=======
+                {{form|crispy}}
+>>>>>>> 7edb7eab55de7e1d348d1e076f39742beb721cbd
             <button type="submit" class="btn btn-warning">Register</button> 
-
         </form>
     </div>
 </div>
@@ -35,7 +37,6 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
-
 </body>
 </html>
 {% endblock %}
