@@ -64,6 +64,7 @@ def borrowed_book(request):
 def returned_book(request):
     return render(request, 'books/returned_book.html')
 
+"""Views for notifications"""
 @login_required
 def notifications(request):
     return render(request, 'books/notifications.html')
