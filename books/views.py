@@ -7,6 +7,7 @@ from datetime import *
 from django.urls import reverse
 
 # Create your views here.
+"""Views for the very first page of the library system"""
 def index(request):
     return render(request, 'books/index.html')
 
@@ -29,17 +30,14 @@ def search_book(request):
     else:
         return render(request, 'books/search_book.html')
 
+"""Defining views for the borrow page"""
 @login_required
-def borrow(request):
-    if request.method == "POST":
-        # clicked = request.POST['clicked']
-        # books = Book.objects.filter(title__icontains=clicked)
-        # context = { 'clicked':clicked, 'books':books }
-        confirm_borrow(request,id)
+def borrow(request, book_id):
+    clicked = Book.objects.get(id = book_id)
+    books = Book.objects.filter(title__icontains=clicked)
+    context = { 'clicked':clicked, 'books':books }
 
-        return render(request, 'books/borrow.html')
-    else:
-        return render(request, 'books/borrow.html')
+    return render(request, 'books/borrow.html', context)
 
 def get_return_date():
   return datetime.today() + timedelta(days = 14)
@@ -47,6 +45,7 @@ def get_return_date():
 def book_time_limit():
   return datetime.now() + timedelta(hours=6)
 
+"""Views for the confirm borrow"""
 @login_required
 def confirm_borrow(request,id):
     book = Book.objects.get(id=id)
@@ -66,7 +65,7 @@ def confirm_borrow(request,id):
 def profile(request):
     return render(request, 'books/profile.html')
 
-
+"""Views for the borrowed book"""
 @login_required
 def borrowed_book(request):
     requested_book = models.RequestedBook.objects.all()
@@ -86,10 +85,12 @@ def borrowed_book(request):
     return render(request, 'books/borrowed_book.html')
     
 
+"""Views for the returned book"""
 @login_required
 def returned_book(request):
     return render(request, 'books/returned_book.html')
 
+"""Views for notifications"""
 @login_required
 def notifications(request):
     return render(request, 'books/notifications.html')
