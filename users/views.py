@@ -26,7 +26,7 @@ def login(request):
             return redirect('/home')
         else:
             pass
-    else:
+    else: 
         form = LoginForm()
 
     context = {'form': form}
