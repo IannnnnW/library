@@ -32,11 +32,12 @@ def search_book(request):
 @login_required
 def borrow(request):
     if request.method == "POST":
-        clicked = request.POST['clicked']
-        books = Book.objects.filter(title__icontains=clicked)
-        context = { 'clicked':clicked, 'books':books }
+        # clicked = request.POST['clicked']
+        # books = Book.objects.filter(title__icontains=clicked)
+        # context = { 'clicked':clicked, 'books':books }
+        confirm_borrow(request,id)
 
-        return render(request, 'books/borrow.html', context)
+        return render(request, 'books/borrow.html')
     else:
         return render(request, 'books/borrow.html')
 
@@ -49,11 +50,11 @@ def book_time_limit():
 @login_required
 def confirm_borrow(request,id):
     book = Book.objects.get(id=id)
-    borrower = Borrower(first_name=request.user.first_name,last_name=request.user.lastname,book_name=book.title,reg_no=request.user)
+    borrower = Borrower(first_name=request.user.first_name,book_name=book.title,reg_no=request.user.reg_no)
     borrower.save()
-    issued_book 
-    issued_book = IssuedBook(book_name = book.title,issued_date = datetime.now(),return_date=get_return_date() ,pickup_time = book_time_limit() )
-    issued_book.save()
+ 
+    requested_book = RequestedBook(book_name = book.title,issued_date = datetime.now(),return_date=get_return_date() ,pickup_time = book_time_limit(),borrower=request.user)
+    requested_book.save()
 
     
     return redirect('books:index')
@@ -68,9 +69,9 @@ def profile(request):
 
 @login_required
 def borrowed_book(request):
-    issuedbooks = models.IssuedBook.objects.all()
+    requested_book = models.RequestedBook.objects.all()
     li = []
-    for book in issuedbooks:
+    for book in requested_book:
         issuedate = str(book.issued_date.day)+'-'+str(book.issued_date.month)+'-'+str(book.issued_date.year)
         return_date = str(book.return_date.day)+'-'+str(book.return_date.month)+'-'+str(book.return_date.year)
 
@@ -95,7 +96,7 @@ def notifications(request):
 @login_required
 def fines(request):
     if request.method == 'POST':
-        fines = Fines.objects.all()
+        pass
 
 
     else:
