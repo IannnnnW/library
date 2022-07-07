@@ -16,31 +16,28 @@
                         <div class="card-transparent">
                             <div class="card-body">
                                 <p><u><h3 class="text-warning text-responsive"> {{ b }} </h3></u></p>
-                                <p class="text-white text-justify"> {{ b.description }} </p>
+                                <p class="text-dark text-justify"> {{ b.description }} </p>
                                 <br>
                                 <br>
                                 <div>
                                     <span class="font-weight-bold text-warning">Author:</span>
-                                    <i class="text-white"> {{ b.author }} </i>
+                                    <i class="text-dark"> {{ b.author }} </i>
                                 </div>
                                 <br>
                                 <div>
                                     <span class="font-weight-bold text-warning">Genre:</span>
-                                    <i class="text-white"> {{ b.category }} </i>
+                                    <i class="text-dark"> {{ b.category }} </i>
                                 </div>
                                 <br>
                                 <p><u><h5 class="text-warning">Related books</h5></u></p>
-                                <ol class="text-white text-monospace">
+                                <ol class="text-dark text-monospace">
                                     <li>Vincent in wonderworld</li>
                                     <li>Wasukira in the shady forest</li>
                                     <li>Owen cruises through the lonely streets of campus</li>
                                     <li>Nsenji the cave man</li>
                                 </ol>
                                 <br>
-                                <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:confirm_borrow' %}">
-                                    {% csrf_token %}
-                                    <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
-                                </form>
+                                <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
                             </div>
                         </div>
                     </div>
