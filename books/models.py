@@ -40,7 +40,7 @@ class Borrower(models.Model):
     verbose_name_plural = 'borrowers'
 
   def __str__(self):
-    return str(self.first_name)+"["+str(self.book_num)+']'
+    return str(self.first_name)+"["+str(self.book_name)+']'
 
 def get_return_date():
   return datetime.today() + timedelta(days = 14)
@@ -49,18 +49,23 @@ def book_time_limit():
   return datetime.now() + timedelta(hours=6)
 
 class IssuedBook(models.Model):
-  book_name = models.CharField(max_length= 200)
-  issued_date = models.DateField(auto_now = True)
-  return_date = models.DateField(default=get_return_date)
-  pickup_time = models.DateTimeField(default=book_time_limit)
+  book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
   borrower = models.CharField(max_length= 200)
+  reg_no = models.IntegerField()
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
   def __str__(self):
     return self.book_name
 
-class Fines(models.Model):
-  book_name = models.ForeignKey(Book,on_delete=models.CASCADE)
+class RequestedBook(models.Model):
+  book_name = models.CharField(max_length= 200)
+  issued_date = models.DateField(auto_now = True)
+  return_date = models.DateField(default=get_return_date)
+  pickup_time = models.DateTimeField(default=book_time_limit)
+  borrower = models.CharField(max_length= 200)
+  class Meta:
+    verbose_name_plural = 'requestedbooks'
+
   
   
