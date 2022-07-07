@@ -30,6 +30,7 @@ class Book(models.Model):
   def __str__(self):
     return self.title
 
+"""Model for the Users borrowing books"""
 class Borrower(models.Model):
   first_name = models.CharField(max_length=30)
   last_name = models.CharField(max_length=30)
