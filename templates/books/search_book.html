@@ -21,7 +21,7 @@
                             <div class="float-right">
                                 <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="borrow">
                                     {% csrf_token %}
-                                    <input class="btn mb-3 btn-outline-warning float-right btn-lg border rounded" type="submit" name="BORROW" > 
+                                    < class="btn mb-3 btn-outline-warning float-right btn-lg border rounded" type=""><a href="{% url 'books:borrow' %}"> BORROW </a></button>
                                 </form>
                             </div>
                         </div>

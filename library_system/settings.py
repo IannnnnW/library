@@ -91,7 +91,7 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'book_library2',
+        'NAME': 'book_library3',
         'USER': 'postgres',
         'PASSWORD':'ilikedj48',
         'HOST': 'localhost',
