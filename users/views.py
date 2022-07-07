@@ -18,12 +18,6 @@ def login(request):
         form = LoginForm(data = request.POST)
         if form.is_valid():
             return redirect('home')
-
-        user = auth.authenticate(username=Username,password=Password)
-
-        if user is not None:
-            auth.login(request,user)
-            return redirect('/home')
         else:
             pass
     else:

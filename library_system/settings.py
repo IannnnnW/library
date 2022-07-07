@@ -91,7 +91,7 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'vinxdb',
+        'NAME': 'vinx2db',
         'USER': 'postgres',
         'PASSWORD':'1234',
         'HOST': 'localhost',
