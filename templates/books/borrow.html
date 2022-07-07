@@ -3,7 +3,7 @@
 
 {% block content %}
 <body class="mt-5">
-    <!-- {% if clicked %} -->
+    {% if clicked %}
         {% for b in books %}
             <div class="container align-text-bottom">
                 <div class="media">
@@ -39,7 +39,7 @@
                                     </ol>
                                     <br>
                                     <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:confirm_borrow' %}">
-                                        {% csrf_token %}
+                                        { % csrf_token %}
                                         <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
                                     </form>
                                 </div>
@@ -49,7 +49,7 @@
                 </div>
             </div>
         {% endfor %}
-    <!-- {% endif %} -->
+    {% endif %}
 
 <script src='{% static "https://code.jquery.com/jquery-3.3.1.slim.min.js"%}' integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 crossorigin="anonymous"></script>
