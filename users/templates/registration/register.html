@@ -21,7 +21,7 @@
     <div class="showcase-container container">
         <form method="POST" class="form-group" action="register">
             {% csrf_token %}
-            
+                {{form|crispy}}
             <button type="submit" class="btn btn-warning">Register</button> 
         </form>
     </div>
