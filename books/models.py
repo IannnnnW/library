@@ -57,6 +57,8 @@ class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
   borrower = models.ForeignKey(Borrower, on_delete=models.CASCADE)
   reg_no = models.IntegerField()
+  issued_date = models.DateField(auto_now = True)
+  return_date = models.DateField(default=get_return_date)
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
@@ -66,8 +68,6 @@ class IssuedBook(models.Model):
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
   book_name = models.CharField(max_length= 200)
-  issued_date = models.DateField(auto_now = True)
-  return_date = models.DateField(default=get_return_date)
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
   class Meta:
