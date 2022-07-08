@@ -94,16 +94,7 @@ def returned_book(request):
 @login_required
 def notifications(request):
     return render(request, 'books/notifications.html')
-@login_required
-def fines(request):
-    if request.method == 'POST':
-        pass
 
-
-    else:
-        pass
-    
-    return render(request, 'books/fines.html')
 
 
 
