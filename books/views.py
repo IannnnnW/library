@@ -95,6 +95,7 @@ def returned_book(request):
 """Views for notifications"""
 @login_required
 def notifications(request):
+    Issued_Book = IssuedBook.objects.all()
     return render(request, 'books/notifications.html')
 
 
