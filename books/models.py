@@ -32,14 +32,15 @@ class Book(models.Model):
 
 """Model for the Users borrowing books"""
 class Borrower(models.Model):
-  borrower = models.OneToOneField(User, null = True , on_delete=models.CASCADE)
+  first_name = models.CharField(max_length=300)
+  last_name = models.CharField(max_length=300)
   book_name = models.CharField(max_length=300)
   reg_no = models.CharField(max_length=200)
   class Meta:
     verbose_name_plural = 'borrowers'
 
   def __str__(self):
-    return str(self.first_name)+"["+str(self.book_name)+']'
+    return str(self.first_name)+'['+str(self.book_name)+']'
 
 """Function to define the return date of the book"""
 def get_return_date():
