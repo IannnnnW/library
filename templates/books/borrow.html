@@ -16,7 +16,7 @@
 </head>
 
 {% block content %}
-<body class="mt-5">
+<body class="mt-5" style="background-image: url('{% static "img/lib4.JPG" %}')" no-repeat center center-cover;>
     {% for b in books %}
         <div class="container align-text-bottom">
             <div class="media">
@@ -30,21 +30,21 @@
                         <div class="card-transparent">
                             <div class="card-body">
                                 <p><u><h3 class="text-warning text-responsive"> {{ b }} </h3></u></p>
-                                <p class="text-dark text-justify"> {{ b.description }} </p>
+                                <p class="text-white text-justify"> {{ b.description }} </p>
                                 <br>
                                 <br>
                                 <div>
                                     <span class="font-weight-bold text-warning">Author:</span>
-                                    <i class="text-dark"> {{ b.author }} </i>
+                                    <i class="text-white"> {{ b.author }} </i>
                                 </div>
                                 <br>
                                 <div>
                                     <span class="font-weight-bold text-warning">Genre:</span>
-                                    <i class="text-dark"> {{ b.category }} </i>
+                                    <i class="text-white"> {{ b.category }} </i>
                                 </div>
                                 <br>
                                 <p><u><h5 class="text-warning">Related books</h5></u></p>
-                                <ol class="text-dark text-monospace">
+                                <ol class="text-white text-monospace">
                                     <li>Vincent in wonderworld</li>
                                     <li>Wasukira in the shady forest</li>
                                     <li>Owen cruises through the lonely streets of campus</li>
@@ -52,13 +52,13 @@
                                 </ol>
                                 <br>
                                 {% if b.status %}
-                                    <p> Status : <span class="text-success">Available</span>  </p>
+                                    <p class="text-warning"> Status : <span class="text-success">Available</span>  </p>
                                     <a href="{% url 'books:confirm_borrow' b.id %}">{{ b }}
                                         <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
                                     <!-- the button was put inside the href link , why!! -->
                                     </a>
                                 {% else %}
-                                <p> Status : <span class="text-danger">Unavailable </span> </p>
+                                <p class="text-warning"> Status : <span class="text-danger">Unavailable </span> </p>
                                         <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled">BORROW</button>
                                     <!-- the button was put inside the href link , why!! -->
                                 {% endif %}
