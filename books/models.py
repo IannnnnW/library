@@ -24,7 +24,7 @@ class Book(models.Model):
   title = models.CharField(max_length=200)
   author = models.CharField(max_length=200)
   category = models.CharField(max_length=40, choices = CATEGORY)
-  status = models.CharField(max_length = 30, choices=STATUS_CHOICES)
+  status = models.BooleanField(default = True)
   description = models.TextField(max_length=3000)
   image = models.ImageField(upload_to = 'pics', blank = True)
   class Meta:
@@ -73,5 +73,7 @@ class RequestedBook(models.Model):
   class Meta:
     verbose_name_plural = 'requestedbooks'
 
-  
+  def __str__(self):
+    return str(self.book_name) + '(' + str(self.borrower) + ')'
+
   
