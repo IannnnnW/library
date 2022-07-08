@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.forms import CharField
 from datetime import *
 
@@ -16,10 +17,7 @@ class Book(models.Model):
     ('romance', 'Romance'),
     ('scifi','Sci-Fi')
   ]
-  STATUS_CHOICES = [
-    ('available', 'Available'),
-    ('unavailable', 'Unavailable')
-  ]
+  
   title = models.CharField(max_length=200)
   author = models.CharField(max_length=200)
   category = models.CharField(max_length=40, choices = CATEGORY)
@@ -34,8 +32,7 @@ class Book(models.Model):
 
 """Model for the Users borrowing books"""
 class Borrower(models.Model):
-  first_name = models.CharField(max_length=300)
-  last_name = models.CharField(max_length=300)
+  borrower = models.OneToOneField(User, null = True , on_delete=models.CASCADE)
   book_name = models.CharField(max_length=300)
   reg_no = models.CharField(max_length=200)
   class Meta:
@@ -54,8 +51,8 @@ def book_time_limit():
 
 """Model for the books issued to a borrower"""
 class IssuedBook(models.Model):
-  book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
-  borrower = models.ForeignKey(Borrower, on_delete=models.CASCADE)
+  book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)
+  borrower = models.ForeignKey(Borrower, null = True , on_delete=models.CASCADE)
   reg_no = models.BigIntegerField()
   issued_date = models.DateField(auto_now = True)
   return_date = models.DateField(default=get_return_date)
@@ -68,8 +65,6 @@ class IssuedBook(models.Model):
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
   book_name = models.CharField(max_length= 200)
-  
-  
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
   class Meta:

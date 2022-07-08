@@ -2,7 +2,7 @@
 <br>
 <br>
 {% block content %}
-    {% if searched  %}
+    {% if searched not in books %}
         <h1>You searched for "{{ searched }}"</h1><br>
         {% for book in books %}
             <div class="card">
