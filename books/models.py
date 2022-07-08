@@ -23,7 +23,7 @@ class Book(models.Model):
   title = models.CharField(max_length=200)
   author = models.CharField(max_length=200)
   category = models.CharField(max_length=40, choices = CATEGORY)
-  status = models.CharField(max_length = 30, choices=STATUS_CHOICES)
+  status = models.BooleanField(default = True)
   description = models.TextField(max_length=3000)
   image = models.ImageField(upload_to = 'pics', blank = True)
   class Meta:
@@ -56,7 +56,9 @@ def book_time_limit():
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
   borrower = models.ForeignKey(Borrower, on_delete=models.CASCADE)
-  reg_no = models.IntegerField()
+  reg_no = models.BigIntegerField()
+  issued_date = models.DateField(auto_now = True)
+  return_date = models.DateField(default=get_return_date)
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
@@ -66,12 +68,14 @@ class IssuedBook(models.Model):
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
   book_name = models.CharField(max_length= 200)
-  issued_date = models.DateField(auto_now = True)
-  return_date = models.DateField(default=get_return_date)
+  
+  
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
   class Meta:
     verbose_name_plural = 'requestedbooks'
 
-  
+  def __str__(self):
+    return str(self.book_name) + '(' + str(self.borrower) + ')'
+
   

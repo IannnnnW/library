@@ -13,10 +13,15 @@ def login(request):
         form = LoginForm(data = request.POST)
         if form.is_valid():
             return redirect('home')
+<<<<<<< HEAD
 
         else:
             pass
 
+=======
+        else:
+            pass
+>>>>>>> efd8dd1b78a03b2850d347bf7b68bf206cad0bd8
     else:
         form = LoginForm()
 
