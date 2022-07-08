@@ -13,14 +13,15 @@ def login(request):
         form = LoginForm(data = request.POST)
         if form.is_valid():
             return redirect('home')
+<<<<<<< HEAD
 
-        # user = auth.authenticate(username=Username,password=Password)
+        else:
+            pass
 
-        # if user is not None:
-        #     auth.login(request,user)
-        #     return redirect('/home')
-        # else:
-        #     pass
+=======
+        else:
+            pass
+>>>>>>> efd8dd1b78a03b2850d347bf7b68bf206cad0bd8
     else:
         form = LoginForm()
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.forms import CharField
 from datetime import *
 
@@ -23,7 +24,7 @@ class Book(models.Model):
   title = models.CharField(max_length=200)
   author = models.CharField(max_length=200)
   category = models.CharField(max_length=40, choices = CATEGORY)
-  status = models.CharField(max_length = 30, choices=STATUS_CHOICES)
+  status = models.BooleanField(default = True)
   description = models.TextField(max_length=3000)
   image = models.ImageField(upload_to = 'pics', blank = True)
   class Meta:
@@ -34,8 +35,7 @@ class Book(models.Model):
 
 """Model for the Users borrowing books"""
 class Borrower(models.Model):
-  first_name = models.CharField(max_length=300)
-  last_name = models.CharField(max_length=300)
+  borrower = models.OneToOneField(User, null = True , on_delete=models.CASCADE)
   book_name = models.CharField(max_length=300)
   reg_no = models.CharField(max_length=200)
   class Meta:
@@ -54,9 +54,9 @@ def book_time_limit():
 
 """Model for the books issued to a borrower"""
 class IssuedBook(models.Model):
-  book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
-  borrower = models.ForeignKey(Borrower, on_delete=models.CASCADE)
-  reg_no = models.IntegerField()
+  book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)
+  borrower = models.ForeignKey(Borrower, null = True , on_delete=models.CASCADE)
+  reg_no = models.BigIntegerField()
   issued_date = models.DateField(auto_now = True)
   return_date = models.DateField(default=get_return_date)
   class Meta:
@@ -73,5 +73,7 @@ class RequestedBook(models.Model):
   class Meta:
     verbose_name_plural = 'requestedbooks'
 
-  
+  def __str__(self):
+    return str(self.book_name) + '(' + str(self.borrower) + ')'
+
   

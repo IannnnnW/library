@@ -48,10 +48,21 @@
                                     <li>Vincent in wonderworld</li>
                                     <li>Wasukira in the shady forest</li>
                                     <li>Owen cruises through the lonely streets of campus</li>
-                                    <li>Nsenji the cave man</li>
+                                
                                 </ol>
                                 <br>
-                                <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
+                                {% if b.status %}
+                                    <p> status = available  </p>
+                                    <a href="{% url 'books:confirm_borrow' b.id %}">{{ b }}
+                                        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
+                                    <!-- the button was put inside the href link , why!! -->
+                                    </a>
+                                {% else %}
+                                <p> status = unavailable  </p>
+                                        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled">BORROW</button>
+                                    <!-- the button was put inside the href link , why!! -->
+                                {% endif %}
+                                </a>
                             </div>
                         </div>
                     </div>
