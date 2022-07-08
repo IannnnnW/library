@@ -93,17 +93,10 @@ def returned_book(request):
 """Views for notifications"""
 @login_required
 def notifications(request):
-    return render(request, 'books/notifications.html')
-@login_required
-def fines(request):
-    if request.method == 'POST':
-        pass
-
-
-    else:
-        pass
     
-    return render(request, 'books/fines.html')
+    return render(request, 'books/notifications.html')
+
+
 
 
 

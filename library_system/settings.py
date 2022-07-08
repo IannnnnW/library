@@ -91,9 +91,9 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'book_library3',
+        'NAME': 'Library_9',
         'USER': 'postgres',
-        'PASSWORD':'1234',
+        'PASSWORD':'12345',
         'HOST': 'localhost',
         'PORT': '5432',
 
