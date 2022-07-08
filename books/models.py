@@ -56,7 +56,7 @@ def book_time_limit():
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
   borrower = models.ForeignKey(Borrower, on_delete=models.CASCADE)
-  reg_no = models.IntegerField()
+  reg_no = models.BigIntegerField()
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
@@ -73,5 +73,7 @@ class RequestedBook(models.Model):
   class Meta:
     verbose_name_plural = 'requestedbooks'
 
-  
+  def __str__(self):
+    return str(self.book_name) + '(' + str(self.borrower) + ')'
+
   

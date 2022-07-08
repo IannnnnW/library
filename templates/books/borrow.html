@@ -51,7 +51,10 @@
                                 
                                 </ol>
                                 <br>
-                                <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
+                                <a href="{% url 'books:confirm_borrow' b.id %}">{{ b }}
+                                    <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
+                                <!-- the button was put inside the href link , why!! -->
+                                </a>
                             </div>
                         </div>
                     </div>
