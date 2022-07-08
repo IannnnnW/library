@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import get_object_or_404, render,redirect
 from . import models
 from .models import Book
 from django.contrib.auth.decorators import login_required
@@ -47,7 +47,7 @@ def book_time_limit():
 
 """Views for the confirm borrow"""
 @login_required
-def confirm_borrow(request,id):
+def confirm_borrow(request, id):
     book = Book.objects.get(id=id)
     borrower = Borrower(first_name=request.user.first_name,last_name=request.user.last_name,book_name=book.title)
     borrower.save()
@@ -57,8 +57,7 @@ def confirm_borrow(request,id):
     book.status = False
     book.save()
 
-    
-    return redirect('books:home')
+    return redirect('books:borrow')
 
 
 
