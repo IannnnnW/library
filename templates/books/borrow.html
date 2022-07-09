@@ -52,7 +52,7 @@
                                 </ol>
                                 <br>
                                 {% if b.status %}
-                                    <p> status = available  </p>
+                                    <p> status : available  </p>
                                     <p> The book should be picked within 6 hours </p>
                                     <p> Return date : {{ return_date }}</p>
                                     <a href="{% url 'books:confirm_borrow' b.id %}">{{ b }}
