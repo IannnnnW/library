@@ -95,9 +95,14 @@ def returned_book(request):
 """Views for notifications"""
 @login_required
 def notifications(request):
-    return render(request, 'books/notifications.html')
+    issued_book = IssuedBook.objects.all()
+    context = {'issued_book':issued_book}
+    return render(request, 'books/notifications.html', context)
 
-
+def borrowed_book(request):
+    borrowed = Borrower.objects.all()
+    context = {'borrowed':borrowed}
+    return render(request,'books/borrowed_book.html', context)
 
 
 

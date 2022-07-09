@@ -32,7 +32,8 @@ class Book(models.Model):
 
 """Model for the Users borrowing books"""
 class Borrower(models.Model):
-  borrower = models.OneToOneField(User, null = True , on_delete=models.CASCADE)
+  first_name = models.CharField(max_length=300)
+  last_name = models.CharField(max_length=300)
   book_name = models.CharField(max_length=300)
   reg_no = models.CharField(max_length=200)
   class Meta:
@@ -53,14 +54,14 @@ def book_time_limit():
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)
   borrower = models.ForeignKey(Borrower, null = True , on_delete=models.CASCADE)
-  reg_no = models.BigIntegerField()
+  reg_no = models.CharField(max_length=200)
   issued_date = models.DateField(auto_now = True)
   return_date = models.DateField(default=get_return_date)
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
   def __str__(self):
-    return self.book_name
+    return self.book_name.title
 
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
