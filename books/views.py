@@ -49,10 +49,10 @@ def book_time_limit():
 @login_required
 def confirm_borrow(request,id):
     book = Book.objects.get(id=id)
-    borrower = Borrower(first_name=request.user.first_name,last_name=request.user.last_name,book_name=book.title)
+    borrower = Borrower(first_name=request.user.first_name,last_name=request.user.last_name,username=request.user.username,book_name=book.title)
     borrower.save()
  
-    requested_book = RequestedBook(book_name = book.title ,pickup_time = book_time_limit(),borrower=request.user)
+    requested_book = RequestedBook(book_name = book.title ,pickup_time = book_time_limit(),return_date= get_return_date(),borrower=request.user)
     requested_book.save()
     book.status = False
     book.save()

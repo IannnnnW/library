@@ -1,6 +1,7 @@
 from django.db import models
 from django.forms import CharField
 from datetime import *
+from django.contrib.auth.models import User
 
 # Create your models here.
 """Model that stores the library books"""
@@ -36,13 +37,14 @@ class Book(models.Model):
 class Borrower(models.Model):
   first_name = models.CharField(max_length=300)
   last_name = models.CharField(max_length=300)
+  username = models.CharField(max_length=300)
   book_name = models.CharField(max_length=300)
   reg_no = models.CharField(max_length=200)
   class Meta:
     verbose_name_plural = 'borrowers'
 
   def __str__(self):
-    return str(self.first_name)+"["+str(self.book_name)+']'
+    return str(self.username)+"["+str(self.book_name)+']'
 
 """Function to define the return date of the book"""
 def get_return_date():
@@ -68,7 +70,7 @@ class IssuedBook(models.Model):
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
   book_name = models.CharField(max_length= 200)
-  
+  return_date = models.DateField(default=get_return_date)
   
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
@@ -78,4 +80,9 @@ class RequestedBook(models.Model):
   def __str__(self):
     return str(self.book_name) + '(' + str(self.borrower) + ')'
 
-  
+
+class Returned_book(models.Model):
+  borrower = models.ForeignKey(User,on_delete= models.CASCADE)
+
+
+  date_of_return = models.DateTimeField(auto_now = True)
