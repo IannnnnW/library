@@ -65,11 +65,18 @@ class IssuedBook(models.Model):
 
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
+  book_request = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='requested_book_num')
   book_name = models.CharField(max_length= 200)
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
   class Meta:
     verbose_name_plural = 'requestedbooks'
+
+  def number_of_requested_books(self):
+    if self.book_request.count() < 3:
+      return self.book_request.count()
+    else:
+      return "Unable to borrow more than two books."
 
   def __str__(self):
     return str(self.book_name) + '(' + str(self.borrower) + ')'
