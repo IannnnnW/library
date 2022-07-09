@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.forms import CharField
 from datetime import *
 from django.contrib.auth.models import User
@@ -17,10 +18,7 @@ class Book(models.Model):
     ('romance', 'Romance'),
     ('scifi','Sci-Fi')
   ]
-  STATUS_CHOICES = [
-    ('available', 'Available'),
-    ('unavailable', 'Unavailable')
-  ]
+  
   title = models.CharField(max_length=200)
   author = models.CharField(max_length=200)
   category = models.CharField(max_length=40, choices = CATEGORY)
@@ -44,7 +42,11 @@ class Borrower(models.Model):
     verbose_name_plural = 'borrowers'
 
   def __str__(self):
+<<<<<<< HEAD
     return str(self.username)+"["+str(self.book_name)+']'
+=======
+    return str(self.first_name)+'['+str(self.book_name)+']'
+>>>>>>> 25ed1daaa1a3da5658d572e3187149b154749380
 
 """Function to define the return date of the book"""
 def get_return_date():
@@ -56,27 +58,41 @@ def book_time_limit():
 
 """Model for the books issued to a borrower"""
 class IssuedBook(models.Model):
-  book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
-  borrower = models.ForeignKey(Borrower, on_delete=models.CASCADE)
-  reg_no = models.BigIntegerField()
+  book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)
+  borrower = models.ForeignKey(Borrower, null = True , on_delete=models.CASCADE)
+  reg_no = models.CharField(max_length=200)
   issued_date = models.DateField(auto_now = True)
   return_date = models.DateField(default=get_return_date)
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
   def __str__(self):
+<<<<<<< HEAD
     return self.book_name + ' ' +'[' + self.borrower + ']' 
 
+=======
+    return self.book_name.title
+>>>>>>> 25ed1daaa1a3da5658d572e3187149b154749380
 
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
+  book_request = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='requested_book_num')
   book_name = models.CharField(max_length= 200)
+<<<<<<< HEAD
   return_date = models.DateField(default=get_return_date)
   
+=======
+>>>>>>> 25ed1daaa1a3da5658d572e3187149b154749380
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
   class Meta:
     verbose_name_plural = 'requestedbooks'
+
+  def number_of_requested_books(self):
+    if self.book_request.count() < 3:
+      return self.book_request.count()
+    else:
+      return "Unable to borrow more than two books."
 
   def __str__(self):
     return str(self.book_name) + '(' + str(self.borrower) + ')'

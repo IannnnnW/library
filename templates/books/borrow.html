@@ -16,7 +16,7 @@
 </head>
 
 {% block content %}
-<body class="mt-5">
+<body class="mt-5" style="background-image: url('{% static "img/lib4.JPG" %}')" no-repeat center center-cover;>
     {% for b in books %}
         <div class="container align-text-bottom">
             <div class="media">
@@ -30,21 +30,21 @@
                         <div class="card-transparent">
                             <div class="card-body">
                                 <p><u><h3 class="text-warning text-responsive"> {{ b }} </h3></u></p>
-                                <p class="text-dark text-justify"> {{ b.description }} </p>
+                                <p class="text-white text-justify"> {{ b.description }} </p>
                                 <br>
                                 <br>
                                 <div>
                                     <span class="font-weight-bold text-warning">Author:</span>
-                                    <i class="text-dark"> {{ b.author }} </i>
+                                    <i class="text-white"> {{ b.author }} </i>
                                 </div>
                                 <br>
                                 <div>
                                     <span class="font-weight-bold text-warning">Genre:</span>
-                                    <i class="text-dark"> {{ b.category }} </i>
+                                    <i class="text-white"> {{ b.category }} </i>
                                 </div>
                                 <br>
                                 <p><u><h5 class="text-warning">Related books</h5></u></p>
-                                <ol class="text-dark text-monospace">
+                                <ol class="text-white text-monospace">
                                     <li>Vincent in wonderworld</li>
                                     <li>Wasukira in the shady forest</li>
                                     <li>Owen cruises through the lonely streets of campus</li>
@@ -52,17 +52,42 @@
                                 </ol>
                                 <br>
                                 {% if b.status %}
+<<<<<<< HEAD
                                     <p> status : available  </p>
                                     <p> The book should be picked within 6 hours </p>
                                     <p> Return date : {{ return_date }}</p>
+=======
+<<<<<<< HEAD
+                                    <p class="text-warning"> Status : <span class="text-success">Available</span>  </p>
+=======
+<<<<<<< HEAD
+                                    <p> Status: available  </p>
+=======
+                                    <p> <span class="text-warning">Status:</span> Available  </p>
+>>>>>>> 60052f5db6c284f0348a83f41df74a8129886605
+>>>>>>> fa263ba38fa59631cfbefb7122263140ac658258
+>>>>>>> 25ed1daaa1a3da5658d572e3187149b154749380
                                     <a href="{% url 'books:confirm_borrow' b.id %}">{{ b }}
                                         <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
                                     <!-- the button was put inside the href link , why!! -->
                                     </a>
                                 {% else %}
+<<<<<<< HEAD
                                     <p> status : unavailable  </p>
                                 
                                     <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled">BORROW</button>
+=======
+<<<<<<< HEAD
+                                <p class="text-warning"> Status : <span class="text-danger">Unavailable </span> </p>
+=======
+<<<<<<< HEAD
+                                <p> Status: unavailable  </p>
+=======
+                                <p> <span class="text-warning">Status:</span> Unavailable  </p>
+>>>>>>> 60052f5db6c284f0348a83f41df74a8129886605
+>>>>>>> fa263ba38fa59631cfbefb7122263140ac658258
+                                        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled">BORROW</button>
+>>>>>>> 25ed1daaa1a3da5658d572e3187149b154749380
                                     <!-- the button was put inside the href link , why!! -->
                                 {% endif %}
                                 </a>

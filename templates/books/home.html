@@ -23,8 +23,9 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
         <div class = "container card">
             {% for book in books %}
                 <div class = "card-block">
-                    <h1><a href="{% url 'books:home' %}">{{book.title}}</a></h1>
-                    <!-- <img src="{{book.image.url}}" alt="book image"> -->
+                    <div class="col col-xs-10 col-md-8 col-lg-4">
+                        <img src="{{book.image.url}}">
+                    </div>
                     {{book.description}}
                     <div class="dropdown-divider"></div>
                 </div>

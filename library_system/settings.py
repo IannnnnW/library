@@ -88,15 +88,36 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3', 
+=======
 
         'ENGINE': 'django.db.backends.postgresql',
+<<<<<<< HEAD
 
         'NAME': 'victor2',
+=======
+<<<<<<< HEAD
+        'NAME': 'owen_9',
+=======
+<<<<<<< HEAD
+        'NAME': 'vinx2db',
+>>>>>>> 25ed1daaa1a3da5658d572e3187149b154749380
         'USER': 'postgres',
-        'PASSWORD':'ilikedj48',
+        'PASSWORD':'1234',
         'HOST': 'localhost',
         'PORT': '5432',
 
+=======
+        'NAME': 'owen',
+>>>>>>> fa263ba38fa59631cfbefb7122263140ac658258
+        'USER': 'postgres',
+        'PASSWORD':'12345',
+        'HOST': 'localhost',
+        'PORT': '5432',
+>>>>>>> ac08dd555ee74a9e875043dc7deec4fac7893fa2
+>>>>>>> 60052f5db6c284f0348a83f41df74a8129886605
     }
 }
 
