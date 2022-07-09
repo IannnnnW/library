@@ -72,11 +72,11 @@ class RequestedBook(models.Model):
   class Meta:
     verbose_name_plural = 'requestedbooks'
 
-  def number_of_requested_books(self):
-    if self.book_request.count() < 3:
-      return self.book_request.count()
-    else:
-      return "Unable to borrow more than two books."
+  # def number_of_requested_books(self):
+  #   if self.book_request.count() < 3:
+  #     return self.book_request.count()
+  #   else:
+  #     return "Unable to borrow more than two books."
 
   def __str__(self):
     return str(self.book_name) + '(' + str(self.borrower) + ')'
