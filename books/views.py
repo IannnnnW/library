@@ -102,17 +102,17 @@ def notifications(request):
 
     if request.user in notice:
         if notice.date_of_retun > notice.return_date + timedelta(days=3):
-            context = {'fine 5000': 'you have a fine of 5000 UGX'}
+            context = {'fine5000': 'you have a fine of 5000 UGX'}
             return render(request,'books/notifications.html',context)
         elif notice.date_of_retun > notice.return_date + timedelta(days=10):
-            context = {'fine 15000':'you have a fine of 15000 UGX '}
+            context = {'fine15000':'you have a fine of 15000 UGX '}
             return render(request,'books/notifications.html',context)
         else:
             notice.date_of_retun < notice.return_date + timedelta(days=3)
-            context = {'no fine':' you dont have any fines'}
+            context = {'nofine':' you dont have any fines'}
             return render(request,'books/notifications.html',context)
     else:
-        context = {'no fine':' you dont have any fines'}
+        context = {'nofine':' you dont have any fines'}
         return render(request,'books/notifications.html',context)
 
 
