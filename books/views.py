@@ -34,8 +34,9 @@ def search_book(request):
 @login_required
 def borrow(request, book_id):
     clicked = Book.objects.get(id = book_id)
+    all_books = Book.objects.all()
     books = Book.objects.filter(title__icontains=clicked)
-    context = { 'clicked':clicked, 'books':books }
+    context = { 'clicked':clicked, 'books':books, 'all_books':all_books }
 
     return render(request, 'books/borrow.html', context)
 
@@ -58,7 +59,7 @@ def confirm_borrow(request,id):
     book.save()
 
     
-    return redirect('books:borrow')
+    return redirect('books:home')
 
 
 
