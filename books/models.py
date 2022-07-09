@@ -86,7 +86,7 @@ class Returned_book(models.Model):
   borrower = models.ForeignKey(Borrower,on_delete= models.CASCADE)
   book_name = models.ForeignKey(IssuedBook,on_delete= models.CASCADE)
   date_of_return = models.DateTimeField(auto_now = True)
-  reg_no = models.ForeignKey(IssuedBook.reg_no,on_delete= models.CASCADE)
+  reg_no = models.BigIntegerField()
   user = models.ForeignKey(User,on_delete= models.CASCADE)
   return_date = models.DateField(auto_now = True)
 
