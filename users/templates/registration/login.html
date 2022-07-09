@@ -23,6 +23,7 @@
 {% endblock page_header %}
 
 {% block content %}
+<body class="text-center" style="background-image: url('{% static "img/lib4.JPG" %}')" no-repeat center center-cover;>
   <div class="card mx-auto" style="width:30rem;">
     <div class="showcase-container container">
       <form class="form" method="POST" action="{% url 'users:login' %}">
@@ -36,4 +37,5 @@
       </form>
     </div>
   </div>
+</body>
 {% endblock content %}

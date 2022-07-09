@@ -59,43 +59,34 @@
                                     </a>
                                 {% else %}
                                     <p class="text-warning"> Status : <span class="text-danger">Unavailable </span> </p>
-
-                                    <script src='{% static "https://code.jquery.com/jquery-3.3.1.slim.min.js"%}' integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-crossorigin="anonymous"></script>
-                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-                                    <script>
-                                        $(document).ready(function(){
-                                            $("modalCenter").modal("show");
-                                        });
-                                    </script>
+                                    <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled" data-toggle="modal" data-target="#modalCenter" type="button">
+                                        BORROW
+                                    </button>
+                            
+                                    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title text-danger text-center" id="modalLongTitle">NOTICE!!</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              <p>Unfortunately the book has been borrowed. You will have to wait till the the book is returned.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
                                 {% endif %}
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled" data-toggle="modal" data-target="#modalCenter" type="button">
-            BORROW
-        </button>
-
-        <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title text-danger text-center" id="modalLongTitle">NOTICE!!</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>Unfortunately the book has been borrowed. You will have to wait till the the book is returned.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
             </div>
         </div>
     {% endfor %}
