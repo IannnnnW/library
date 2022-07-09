@@ -27,6 +27,7 @@ class Book(models.Model):
   class Meta:
     verbose_name_plural = 'books'
 
+
   def __str__(self):
     return self.title
 
