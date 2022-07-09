@@ -45,7 +45,7 @@
                                 <p><u><h5 class="text-warning">Related books</h5></u></p>
                                 <ol class="text-white text-monospace">
                                     {% for book in all_books %}
-                                        {% if book.category == b.category %}
+                                        {% if book.category == b.category and book != b %}
                                             <li>{{ book }}</li>
                                         {% endif %}
                                     {% endfor %}
