@@ -58,7 +58,7 @@ def confirm_borrow(request,id):
     book.save()
 
     
-    return redirect('books:home')
+    return redirect('books:borrow')
 
 
 
