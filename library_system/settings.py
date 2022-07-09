@@ -88,28 +88,9 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3', 
-=======
-
-        'ENGINE': 'django.db.backends.postgresql',
-<<<<<<< HEAD
-        'NAME': 'vinx2db',
-        'USER': 'postgres',
-        'PASSWORD':'1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
-
-=======
-        'NAME': 'owen',
-        'USER': 'postgres',
-        'PASSWORD':'12345',
-        'HOST': 'localhost',
-        'PORT': '5432',
->>>>>>> ac08dd555ee74a9e875043dc7deec4fac7893fa2
->>>>>>> 60052f5db6c284f0348a83f41df74a8129886605
-    }
+        'NAME': BASE_DIR / 'db.sqlite3',
+            }
 }
 
 # Password validation
@@ -165,3 +146,7 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 #My Settings
 LOGIN_URL = 'users:login'
 LOGOUT_REDIRECT_URL = "books:index"
+
+#Heroku settings
+import django_heroku
+django_heroku.settings(locals())
