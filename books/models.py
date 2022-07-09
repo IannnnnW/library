@@ -17,10 +17,7 @@ class Book(models.Model):
     ('romance', 'Romance'),
     ('scifi','Sci-Fi')
   ]
-  STATUS_CHOICES = [
-    ('available', 'Available'),
-    ('unavailable', 'Unavailable')
-  ]
+  
   title = models.CharField(max_length=200)
   author = models.CharField(max_length=200)
   category = models.CharField(max_length=40, choices = CATEGORY)
