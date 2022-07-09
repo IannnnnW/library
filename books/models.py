@@ -52,7 +52,7 @@ def get_return_date():
 
 """Function to define the amount of time for the user to pick the book"""
 def book_time_limit():
-  return datetime.now() + timedelta(hours=6)
+  return datetime.now() + timedelta(hours=6) 
 
 """Model for the books issued to a borrower"""
 class IssuedBook(models.Model):
@@ -65,7 +65,8 @@ class IssuedBook(models.Model):
     verbose_name_plural = 'issuedbooks'
 
   def __str__(self):
-    return self.book_name
+    return self.book_name + ' ' +'[' + self.borrower + ']' 
+
 
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
@@ -82,7 +83,15 @@ class RequestedBook(models.Model):
 
 
 class Returned_book(models.Model):
-  borrower = models.ForeignKey(User,on_delete= models.CASCADE)
-
-
+  borrower = models.ForeignKey(Borrower,on_delete= models.CASCADE)
+  book_name = models.ForeignKey(IssuedBook,on_delete= models.CASCADE)
   date_of_return = models.DateTimeField(auto_now = True)
+  reg_no = models.ForeignKey(IssuedBook.reg_no,on_delete= models.CASCADE)
+
+  def __str__(self):
+    return self.book_name + '[' + self.borrower + ']'
+
+
+  
+
+  
