@@ -2,11 +2,7 @@
 <br>
 <br>
 {% block content %}
-<<<<<<< HEAD
-    {% if searched %}
-=======
     {% if searched not in books %}
->>>>>>> 60052f5db6c284f0348a83f41df74a8129886605
         <h1>You searched for "{{ searched }}"</h1><br>
         {% for book in books %}
             <div class="card">
@@ -18,10 +14,6 @@
                         <div class="card-body">
                             <h2 class="text-warning"><a href="{% url 'books:borrow' book.id %}"> {{ book }} </a> <br></h2>
                             <p class="text-responsive">{{ book.description }}</p> <br>
-<<<<<<< HEAD
-                            
-=======
->>>>>>> 25ed1daaa1a3da5658d572e3187149b154749380
                             <div class="float-right">
                             </div>
                         </div>

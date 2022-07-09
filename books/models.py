@@ -42,11 +42,7 @@ class Borrower(models.Model):
     verbose_name_plural = 'borrowers'
 
   def __str__(self):
-<<<<<<< HEAD
     return str(self.username)+"["+str(self.book_name)+']'
-=======
-    return str(self.first_name)+'['+str(self.book_name)+']'
->>>>>>> 25ed1daaa1a3da5658d572e3187149b154749380
 
 """Function to define the return date of the book"""
 def get_return_date():
@@ -67,26 +63,22 @@ class IssuedBook(models.Model):
     verbose_name_plural = 'issuedbooks'
 
   def __str__(self):
-<<<<<<< HEAD
     return self.book_name + ' ' +'[' + self.borrower + ']' 
 
-=======
-    return self.book_name.title
->>>>>>> 25ed1daaa1a3da5658d572e3187149b154749380
 
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
   book_request = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='requested_book_num')
   book_name = models.CharField(max_length= 200)
-<<<<<<< HEAD
   return_date = models.DateField(default=get_return_date)
   
-=======
->>>>>>> 25ed1daaa1a3da5658d572e3187149b154749380
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
   class Meta:
     verbose_name_plural = 'requestedbooks'
+
+  def __str__(self):
+    return str(self.book_name) + '(' + str(self.borrower) + ')'
 
   def number_of_requested_books(self):
     if self.book_request.count() < 3:
@@ -94,8 +86,7 @@ class RequestedBook(models.Model):
     else:
       return "Unable to borrow more than two books."
 
-  def __str__(self):
-    return str(self.book_name) + '(' + str(self.borrower) + ')'
+  
 
 
 class Returned_book(models.Model):
