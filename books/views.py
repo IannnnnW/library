@@ -59,7 +59,7 @@ def confirm_borrow(request,id):
 
     context = { 'return_date':requested_book.return_date }
 
-    return render(request, 'borrow.html', context)
+    return render(request, 'books/borrow.html', context)
 
     # return redirect('books:home')
 
