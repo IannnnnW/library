@@ -98,7 +98,41 @@ def returned_book(request):
 """Views for notifications"""
 @login_required
 def notifications(request):
-    return render(request, 'books/notifications.html')
+    notice = Returned_book.objects.get(user = request.user)
+
+    if request.user in notice:
+        if notice.date_of_retun > notice.return_date + timedelta(days=3):
+            context = {}
+            return render(request,'books/notifications.html',context)
+        elif notice.date_of_retun > notice.return_date + timedelta(days=10):
+            context = {}
+            return render(request,'books/notifications.html',context)
+        else:
+            notice.date_of_retun < notice.return_date + timedelta(days=3)
+            context = {}
+            return render(request,'books/notifications.html',context)
+    else:
+        context = {}
+        return render(request,'books/notifications.html',context)
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @login_required
 def fines(request):
     if request.method == 'POST':

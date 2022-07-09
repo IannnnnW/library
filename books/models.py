@@ -87,6 +87,8 @@ class Returned_book(models.Model):
   book_name = models.ForeignKey(IssuedBook,on_delete= models.CASCADE)
   date_of_return = models.DateTimeField(auto_now = True)
   reg_no = models.ForeignKey(IssuedBook.reg_no,on_delete= models.CASCADE)
+  user = models.ForeignKey(User,on_delete= models.CASCADE)
+  return_date = models.DateField(auto_now = True)
 
   def __str__(self):
     return self.book_name + '[' + self.borrower + ']'
