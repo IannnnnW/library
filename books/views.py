@@ -57,8 +57,11 @@ def confirm_borrow(request,id):
     book.status = False
     book.save()
 
-    
-    return redirect('books:home')
+    context = { 'return_date':requested_book.return_date }
+
+    return render(request, 'borrow.html', context)
+
+    # return redirect('books:home')
 
 
 
