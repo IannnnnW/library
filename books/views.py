@@ -40,7 +40,7 @@ def borrow(request, book_id):
     return render(request, 'books/borrow.html', context)
 
 def get_return_date():
-  return datetime.today() + timedelta(days = 14)
+  return datetime.now() + timedelta(hours = 1)
 
 def book_time_limit():
   return datetime.now() + timedelta(hours=6)
@@ -54,6 +54,7 @@ def confirm_borrow(request,id):
  
     requested_book = RequestedBook(book_name = book.title ,pickup_time = book_time_limit(),return_date= get_return_date(),borrower=request.user)
     requested_book.save()
+    notifications = Returned_book
     book.status = False
     book.save()
 
@@ -100,20 +101,25 @@ def returned_book(request):
 def notifications(request):
 
     # user = User.objects.all()
-    guy = User.objects.get(username = request.user.username)
-    notice = Returned_book.objects.all()
+    # guy = User.objects.get(username = request.user.username)
+    # user = User.objects.all()
+    notice = Returned_book.objects.filter(user = request.user)
 
-    if guy in notice:
-        if notice.date_of_retun > notice.return_date + timedelta(days=3):
+    if request.user in notice:
+
+        if notice.date_of_retun > notice.return_date + timedelta(hours=2):
             context = {'fine5000': 'you have a fine of 5000 UGX'}
             return render(request,'books/notifications.html',context)
         elif notice.date_of_retun > notice.return_date + timedelta(days=10):
             context = {'fine15000':'you have a fine of 15000 UGX '}
             return render(request,'books/notifications.html',context)
-        else:
-            notice.date_of_retun < notice.return_date + timedelta(days=3)
-            context = {'nofine':' you dont have any fines'}
+        elif notice.date_of_retun < notice.return_date + timedelta(days=3):
+            context = {'nofine':'no date of return  you dont have any fines'}
             return render(request,'books/notifications.html',context)
+        else:
+            context = {'nofine':' has entered  the if but doesnt match any of the entries'}
+            return render(request,'books/notifications.html',context)
+            
     else:
         context = {'nofine':' you dont have any fines'}
         return render(request,'books/notifications.html',context)

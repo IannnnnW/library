@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
-        'NAME': 'victor2',
+        'NAME': 'victor3',
 
         'USER': 'postgres',
         'PASSWORD':'ilikedj48',

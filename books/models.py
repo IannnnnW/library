@@ -46,7 +46,7 @@ class Borrower(models.Model):
 
 """Function to define the return date of the book"""
 def get_return_date():
-  return datetime.today() + timedelta(days = 14)
+  return datetime.now() + timedelta(hours = 1)
 
 """Function to define the amount of time for the user to pick the book"""
 def book_time_limit():
@@ -58,7 +58,7 @@ class IssuedBook(models.Model):
   borrower = models.ForeignKey(Borrower, null = True , on_delete=models.CASCADE)
   reg_no = models.CharField(max_length=200)
   issued_date = models.DateField(auto_now = True)
-  return_date = models.DateField(default=get_return_date)
+  return_date = models.DateField(auto_now = True)
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
@@ -71,7 +71,6 @@ class RequestedBook(models.Model):
   book_request = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='requested_book_num')
   book_name = models.CharField(max_length= 200)
   return_date = models.DateField(default=get_return_date)
-  
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
   class Meta:
@@ -97,8 +96,10 @@ class Returned_book(models.Model):
   user = models.ForeignKey(User,on_delete= models.CASCADE)
   return_date = models.DateField(auto_now = True)
 
+  # def __str__(self):
+  #   return self.book_name + '[' + self.borrower + ']'
   def __str__(self):
-    return self.book_name + '[' + self.borrower + ']'
+    return self.user
 
 
   
