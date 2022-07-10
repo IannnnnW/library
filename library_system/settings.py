@@ -89,11 +89,20 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+<<<<<<< HEAD
+        'NAME': 'vinx2db',
+        'USER': 'postgres',
+        'PASSWORD':'1234',
+        'HOST': 'localhost',
+        'PORT': '5432',
+
+=======
         'NAME': 'Library',
         'USER': 'postgres',
         'PASSWORD':'12345',
         'HOST': 'localhost',
         'PORT': '5432',
+>>>>>>> e6421a2edc5942384c99e89253986c3c57a23d71
     }
 }
 
