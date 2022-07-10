@@ -34,8 +34,9 @@ def search_book(request):
 @login_required
 def borrow(request, book_id):
     clicked = Book.objects.get(id = book_id)
+    all_books = Book.objects.all()
     books = Book.objects.filter(title__icontains=clicked)
-    context = { 'clicked':clicked, 'books':books }
+    context = { 'clicked':clicked, 'books':books, 'all_books':all_books }
 
     return render(request, 'books/borrow.html', context)
 
@@ -95,9 +96,14 @@ def returned_book(request):
 """Views for notifications"""
 @login_required
 def notifications(request):
-    return render(request, 'books/notifications.html')
+    issued_book = IssuedBook.objects.all()
+    context = {'issued_book':issued_book}
+    return render(request, 'books/notifications.html', context)
 
-
+def borrowed_book(request):
+    borrowed = Borrower.objects.all()
+    context = {'borrowed':borrowed}
+    return render(request,'books/borrowed_book.html', context)
 
 
 

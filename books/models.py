@@ -27,19 +27,21 @@ class Book(models.Model):
   class Meta:
     verbose_name_plural = 'books'
 
+
   def __str__(self):
     return self.title
 
 """Model for the Users borrowing books"""
 class Borrower(models.Model):
-  borrower = models.OneToOneField(User, null = True , on_delete=models.CASCADE)
+  first_name = models.CharField(max_length=300)
+  last_name = models.CharField(max_length=300)
   book_name = models.CharField(max_length=300)
   reg_no = models.CharField(max_length=200)
   class Meta:
     verbose_name_plural = 'borrowers'
 
   def __str__(self):
-    return str(self.first_name)+"["+str(self.book_name)+']'
+    return str(self.first_name)+'['+str(self.book_name)+']'
 
 """Function to define the return date of the book"""
 def get_return_date():
@@ -53,22 +55,29 @@ def book_time_limit():
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)
   borrower = models.ForeignKey(Borrower, null = True , on_delete=models.CASCADE)
-  reg_no = models.BigIntegerField()
+  reg_no = models.CharField(max_length=200)
   issued_date = models.DateField(auto_now = True)
   return_date = models.DateField(default=get_return_date)
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
   def __str__(self):
-    return self.book_name
+    return self.book_name.title
 
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
+  book_request = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='requested_book_num')
   book_name = models.CharField(max_length= 200)
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
   class Meta:
     verbose_name_plural = 'requestedbooks'
+
+  # def number_of_requested_books(self):
+  #   if self.book_request.count() < 3:
+  #     return self.book_request.count()
+  #   else:
+  #     return "Unable to borrow more than two books."
 
   def __str__(self):
     return str(self.book_name) + '(' + str(self.borrower) + ')'
