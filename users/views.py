@@ -38,7 +38,7 @@ def register(request):
     context = {'form': form}
     return render(request, 'registration/register.html', context)
 
-"""Logging out views"""
+"""Logging out views of users app"""
 def logged_out(request):
     core_logout(request)
     return redirect('books:index')
