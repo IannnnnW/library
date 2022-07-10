@@ -54,7 +54,7 @@ def confirm_borrow(request,id):
  
     requested_book = RequestedBook(book_name = book.title ,pickup_time = book_time_limit(),return_date= get_return_date(),borrower=request.user)
     requested_book.save()
-    notifications = Returned_book
+    # notifications = Returned_book
     book.status = False
     book.save()
 
