@@ -68,7 +68,7 @@ class IssuedBook(models.Model):
 
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
-  book_request = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='requested_book_num')
+  # book_request = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='requested_book_num')
   book_name = models.CharField(max_length= 200)
   return_date = models.DateField(default=get_return_date)
   pickup_time = models.DateTimeField(default=book_time_limit)
@@ -79,11 +79,11 @@ class RequestedBook(models.Model):
   def __str__(self):
     return str(self.book_name) + '(' + str(self.borrower) + ')'
 
-  def number_of_requested_books(self):
-    if self.book_request.count() < 3:
-      return self.book_request.count()
-    else:
-      return "Unable to borrow more than two books."
+  # def number_of_requested_books(self):
+  #   if self.book_request.count() < 3:
+  #     return self.book_request.count()
+  #   else:
+  #     return "Unable to borrow more than two books."
 
   
 
