@@ -18,7 +18,9 @@ urlpatterns = [
     #Returned book page in the profile
     path('returned_book/', views.returned_book, name = 'returned_book'),
     #Notifications book page in the profile
-    path('notifications', views.notifications, name = 'notifications'),
+    path('notifications/', views.notifications, name = 'notifications'),
+    #Fines page
+    path('fines', views.fines, name = 'fines'),
     #Confirm borrow page
     path('confirm_borrow/<int:id>', views.confirm_borrow, name = 'confirm_borrow'),
     
