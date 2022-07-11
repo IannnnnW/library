@@ -16,19 +16,27 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
     <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:search_book' %}">
 
         {% csrf_token %}
-        <input class="form-control mr-2" type="search py-3" placeholder="Search for your Book" name="searched">
+        <input class="form-control mr-2" type="search py-3" placeholder="Search for a Book" name="searched">
         <button class = "btn btn-sm btn-warning" type="submit" >Search</button>
     </form>
     <div class = "container">
         <div class = "container card">
             {% for book in books %}
-                <div class = "card-block">
+            <div class="card">
+                <div class="row">
                     <div class="col col-xs-10 col-md-8 col-lg-4">
-                        <img src="{{book.image.url}}">
+                        <img src="{{book.image.url}}" width="100%" height="auto">
                     </div>
-                    {{book.description}}
-                    <div class="dropdown-divider"></div>
+                    <div class="col ">
+                        <div class="card-body">
+                            <h2 class="text-warning"><a href="{% url 'books:borrow' book.id %}"> {{ book }} </a> <br></h2>
+                            <p class="text-responsive">{{ book.description }}</p> <br>
+                            <div class="float-right">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
             {% endfor %}
         </div>
         <section class = "container clear-fix">

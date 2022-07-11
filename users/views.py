@@ -7,7 +7,7 @@ from django.contrib.auth import logout as core_logout
 
 
 # Create your views here.
-"""Login Views"""
+"""Login Views for the users' app"""
 def login(request):
     if request.method == 'POST':
         form = LoginForm(data = request.POST)
@@ -23,7 +23,7 @@ def login(request):
     context = {'form': form}
     return render(request, 'registration/login.html', context)
 
-"""Register views"""
+"""Register views for the users' app"""
 def register(request):
     if request.method != 'POST':
         form = registerform()
@@ -38,7 +38,7 @@ def register(request):
     context = {'form': form}
     return render(request, 'registration/register.html', context)
 
-"""Logging out views"""
+"""Logging out views of users app"""
 def logged_out(request):
     core_logout(request)
     return redirect('books:index')
