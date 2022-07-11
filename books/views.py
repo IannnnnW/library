@@ -58,17 +58,8 @@ def confirm_borrow(request,id):
     # notifications = Returned_book
     book.status = False
     book.save()
-
-<<<<<<< HEAD
     context = { 'return_date':requested_book.return_date }
-
     return render(request, 'books/borrow.html', context)
-
-    # return redirect('books:home')
-=======
-    
-    return redirect('books:home')
->>>>>>> dcb92ba7be352922f7c9601b9920ece5d3b8ccd5
 
 
 
@@ -105,10 +96,6 @@ def returned_book(request):
 """Views for notifications"""
 @login_required
 def notifications(request):
-
-    # user = User.objects.all()
-    # guy = User.objects.get(username = request.user.username)
-    # user = User.objects.all()
     notice = Returned_book.objects.filter(user = request.user)
 
     if request.user in notice:
