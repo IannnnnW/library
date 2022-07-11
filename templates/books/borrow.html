@@ -15,7 +15,7 @@
 </head>
 
 {% block content %}
-<body class="mt-5" style="background-image: url('{% static "img/lib4.JPG" %}')" no-repeat center center-cover;>
+<body class="mt-5" style="background-image: url('{% static "img/lib4.JPG" %}')"  no-repeat center center-cover;>
     {% for b in books %}
         <div class="container align-text-bottom">
             <div class="media">
@@ -52,12 +52,31 @@
                                 </ol>
                                 <br>
                                 {% if b.status %}
+<<<<<<< HEAD
+                                    
+                                    <p> The book should be picked within 6 hours </p>
+                                    <p> Return date : {{ return_date }}</p>
+                                    <p class="text-warning"> Status : <span class="text-success">Available</span>  </p>
+                            
+                                    <a href="{% url 'books:confirm_borrow' b.id %}">{{ b }}
+=======
                                     <p class="text-warning"> Status : <span class="text-success">Available</span>  </p>
                                     <a href="{% url 'books:confirm_borrow' b.id %}">
+>>>>>>> dcb92ba7be352922f7c9601b9920ece5d3b8ccd5
                                         <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
                                     <!-- the button was put inside the href link , why!! -->
                                     </a>
                                 {% else %}
+<<<<<<< HEAD
+                                
+                                
+                                
+
+                                <p class="text-warning"> Status : <span class="text-danger">Unavailable </span> </p>
+                            
+                                        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled">BORROW</button>
+                                    <!-- the button was put inside the href link , why!! -->
+=======
                                     <p class="text-warning"> Status : <span class="text-danger">Unavailable </span> </p>
                                     <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled" data-toggle="modal" data-target="#modalCenter" type="button">
                                         BORROW
@@ -81,6 +100,7 @@
                                           </div>
                                         </div>
                                     </div>
+>>>>>>> dcb92ba7be352922f7c9601b9920ece5d3b8ccd5
                                 {% endif %}
                             </div>
                         </div>
