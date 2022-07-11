@@ -114,7 +114,7 @@ def notifications(request):
             context = {'fine15000':'you have a fine of 15000 UGX '}
             return render(request,'books/notifications.html',context)
         elif notice.date_of_retun < notice.return_date + timedelta(days=3):
-            context = {'nofine':'no date of return  you dont have any fines'}
+            context = {'nofine':' you dont have any fines'}
             return render(request,'books/notifications.html',context)
         else:
             context = {'nofine':' has entered  the if but doesnt match any of the entries'}
