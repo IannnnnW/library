@@ -156,3 +156,6 @@ LOGOUT_REDIRECT_URL = "books:index"
 # Heroku settings.
 import django_heroku
 django_heroku.settings(locals())
+
+import django_heroku
+TEST_RUNNER = 'django_heroku.HerokuDiscoverRunner'
