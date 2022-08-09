@@ -53,13 +53,16 @@ def get_return_date():
 def book_time_limit():
   return datetime.now() + timedelta(hours=6) 
 
+def date_now():
+  return datetime.now()
+
 """Model for the books issued to a borrower"""
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)
   borrower = models.ForeignKey(Borrower, null = True , on_delete=models.CASCADE)
   reg_no = models.CharField(max_length=200)
-  issued_date = models.DateField(auto_now = True)
-  return_date = models.DateField(auto_now = True) 
+  issued_date = models.DateField(default= date_now)
+  return_date = models.DateField(default=get_return_date) 
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
@@ -87,15 +90,13 @@ class RequestedBook(models.Model):
   #     return "Unable to borrow more than two books."
 
   
-
-
 class Returned_book(models.Model):
   borrower = models.ForeignKey(Borrower,on_delete= models.CASCADE)
   book_name = models.ForeignKey(IssuedBook,on_delete= models.CASCADE)
-  date_of_return = models.DateTimeField(auto_now = True)
+  date_of_return = models.DateTimeField(default= date_now)
   reg_no = models.BigIntegerField()
   user = models.ForeignKey(User,on_delete= models.CASCADE)
-  return_date = models.DateField(auto_now = True)
+  return_date = models.DateField(default=get_return_date)
 
   # def __str__(self):
   #   return self.book_name + '[' + self.borrower + ']'
