@@ -71,21 +71,23 @@ def profile(request):
 """Views for the borrowed book"""
 @login_required
 def borrowed_book(request):
-    requested_book = models.RequestedBook.objects.all()
-    li = []
-    for book in requested_book:
+    requested_book = RequestedBook.objects.all()
+    # li = []
+    for books in requested_book:
         issuedate = str(book.issued_date.day)+'-'+str(book.issued_date.month)+'-'+str(book.issued_date.year)
         return_date = str(book.return_date.day)+'-'+str(book.return_date.month)+'-'+str(book.return_date.year)
 
-        books = list(models.Book.objects.filter(book_num = book.book_num))
-        students = list(models.Borrower.objects.filter(reg_no = book.reg_no))
-        i = 0
-        for li in books:
-            t = (students[i].get_name, students[i].reg_no, books[i].name, books[i].author, issuedate, return_date)
-            i += 1
-            li.append(t)
+    #     books = list(models.Book.objects.filter(book_num = book.book_num))
+    #     students = list(models.Borrower.objects.filter(reg_no = book.reg_no))
+    #     i = 0
+    #     for li in books:
+    #         t = (students[i].get_name, students[i].reg_no, books[i].name, books[i].author, issuedate, return_date)
+    #         i += 1
+    #         li.append(t)
+
+    context = {'requested_book':requested_book, 'issuedate':issuedate, 'return_date':return_date}
         
-    return render(request, 'books/borrowed_book.html')
+    return render(request, 'books/borrowed_book.html', context)
     
 
 """Views for the returned book"""
