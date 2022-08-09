@@ -53,13 +53,16 @@ def get_return_date():
 def book_time_limit():
   return datetime.now() + timedelta(hours=6) 
 
+def date_now():
+  return datetime.now()
+  
 """Model for the books issued to a borrower"""
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)
   borrower = models.ForeignKey(Borrower, null = True , on_delete=models.CASCADE)
   reg_no = models.CharField(max_length=200)
-  issued_date = models.DateField(auto_now = True)
-  return_date = models.DateField(auto_now = True) 
+  issued_date = models.DateField(default=date_now)
+  return_date = models.DateField(default=get_return_date) 
   class Meta:
     verbose_name_plural = 'issuedbooks'
 

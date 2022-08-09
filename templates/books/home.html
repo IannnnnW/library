@@ -14,11 +14,11 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
     </div>
 
     <form class="form-inline my-2 my-lg-0 justify-content-center " method=POST action="{% url 'books:search_book' %}">
-
         {% csrf_token %}
         <input class="form-control mr-2" type="search py-3" placeholder="Search for a Book" name="searched">
         <button class = "btn btn-sm btn-warning" type="submit" >Search</button>
     </form>
+    <h3 class="text-center">Popular Books</h3>
     <div class = "container">
         <div class = "container card">
             {% for book in books %}
@@ -30,7 +30,7 @@ style="background:url(https://content.codecademy.com/courses/learn-bootstrap-4/a
                     <div class="col ">
                         <div class="card-body">
                             <h2 class="text-warning"><a href="{% url 'books:borrow' book.id %}"> {{ book }} </a> <br></h2>
-                            <p class="text-responsive">{{ book.description }}</p> <br>
+                            <p class="text-responsive">{{ book.description|truncatechars:50 }}</p> <br>
                             <div class="float-right">
                             </div>
                         </div>

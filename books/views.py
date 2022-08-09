@@ -71,21 +71,21 @@ def profile(request):
 """Views for the borrowed book"""
 @login_required
 def borrowed_book(request):
-    requested_book = RequestedBook.objects.all()
-    # li = []
-    for books in requested_book:
+    requested_book = IssuedBook.objects.all()
+    li = []
+    for book in requested_book:
         issuedate = str(book.issued_date.day)+'-'+str(book.issued_date.month)+'-'+str(book.issued_date.year)
         return_date = str(book.return_date.day)+'-'+str(book.return_date.month)+'-'+str(book.return_date.year)
 
-    #     books = list(models.Book.objects.filter(book_num = book.book_num))
-    #     students = list(models.Borrower.objects.filter(reg_no = book.reg_no))
-    #     i = 0
-    #     for li in books:
-    #         t = (students[i].get_name, students[i].reg_no, books[i].name, books[i].author, issuedate, return_date)
-    #         i += 1
-    #         li.append(t)
+    books = list(models.Book.objects.filter(book_title = book.title))
+    students = list(models.Borrower.objects.filter(reg_no = book.reg_no))
+    i = 1
+    for l in books:
+        t = (students[i].first_name, students[i].reg_no, books[i].title, books[i].author, issuedate, return_date)
+        i += 1
+        li.append(t)
 
-    context = {'requested_book':requested_book, 'issuedate':issuedate, 'return_date':return_date}
+    context = {'requested_book':requested_book, 'issuedate':issuedate, 'return_date':return_date, 'li':li}
         
     return render(request, 'books/borrowed_book.html', context)
     
@@ -93,6 +93,7 @@ def borrowed_book(request):
 """Views for the returned book"""
 @login_required
 def returned_book(request):
+    my_book = Returned_book.objects.all()
     return render(request, 'books/returned_book.html')
 
 """Views for notifications"""
@@ -102,13 +103,13 @@ def notifications(request):
 
     if request.user in notice:
 
-        if notice.date_of_retun > notice.return_date + timedelta(hours=2):
+        if notice.date_of_return > notice.return_date + timedelta(hours=2):
             context = {'fine5000': 'you have a fine of 5000 UGX'}
             return render(request,'books/notifications.html',context)
-        elif notice.date_of_retun > notice.return_date + timedelta(days=10):
+        elif notice.date_of_return > notice.return_date + timedelta(days=10):
             context = {'fine15000':'you have a fine of 15000 UGX '}
             return render(request,'books/notifications.html',context)
-        elif notice.date_of_retun < notice.return_date + timedelta(days=3):
+        elif notice.date_of_return < notice.return_date + timedelta(days=3):
             context = {'nofine':' you dont have any fines'}
             return render(request,'books/notifications.html',context)
         else:
@@ -120,29 +121,10 @@ def notifications(request):
         return render(request,'books/notifications.html',context)
 
 
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @login_required
 def fines(request):
     if request.method == 'POST':
         pass
-
-
     else:
         pass
     

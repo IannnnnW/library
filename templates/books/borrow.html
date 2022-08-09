@@ -46,7 +46,7 @@
                                 <ol class="text-white text-monospace">
                                     {% for book in all_books %}
                                         {% if book.category == b.category and book != b %}
-                                            <li>{{ book }}</li>
+                                            <li><a href="{% url 'books:borrow' book.id %}"> {{ book }} </a></li>
                                         {% endif %}
                                     {% endfor %}
                                 </ol>
@@ -57,7 +57,7 @@
                                     <!-- <p class="text-light"> Return date : {{ return_date }}</p> -->
                                     <p class="text-warning"> Status : <span class="text-success">Available</span>  </p>
                             
-                                    <a href="{% url 'books:borrowed_book' b.id %}">
+                                    <a href="{% url 'books:confirm_borrow' b.id %}">
                                         <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
                                     <!-- the button was put inside the href link , why!! -->
                                     </a>
