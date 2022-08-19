@@ -47,7 +47,7 @@ class Borrower(models.Model):
 
 """Function to define the return date of the book"""
 def get_return_date():
-  return datetime.now() + timedelta(hours = 1)
+  return datetime.now() + timedelta(days = 14)
 
 """Function to define the amount of time for the user to pick the book"""
 def book_time_limit():
@@ -60,6 +60,7 @@ def date_now():
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)
   borrower = models.ForeignKey(Borrower, null = True , on_delete=models.CASCADE)
+  user = models.ForeignKey(User,on_delete= models.CASCADE)
   reg_no = models.CharField(max_length=200)
   issued_date = models.DateField(default= date_now)
   return_date = models.DateField(default=get_return_date) 

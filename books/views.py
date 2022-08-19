@@ -41,7 +41,7 @@ def borrow(request, book_id):
     return render(request, 'books/borrow.html', context)
 
 def get_return_date():
-  return datetime.now() + timedelta(hours = 1)
+  return datetime.now() + timedelta(days = 14)
 
 def book_time_limit():
   return datetime.now() + timedelta(hours=6)
@@ -50,23 +50,29 @@ def book_time_limit():
 @login_required
 def confirm_borrow(request,id):
     book = Book.objects.get(id=id)
-    borrower = Borrower(first_name=request.user.first_name,last_name=request.user.last_name,username=request.user.username,book_name=book.title)
-    borrower.save()
- 
-    requested_book = RequestedBook(book_name = book.title ,pickup_time = book_time_limit(),return_date= get_return_date(),borrower=request.user)
-    requested_book.save()
-    # notifications = Returned_book
-    book.status = False
-    book.save()
+    issued = models.IssuedBook.filter(borrower = request.user)
+    count = 0
+    for b in issued:
+        count += 1
+    if count > 3:
+        book.status = False
+        context = {'error':'First return borrowed books'}
+        return render(request, 'books/borrow.html', context)
+    else:
+        borrower = Borrower(first_name=request.user.first_name,last_name=request.user.last_name,username=request.user.username,book_name=book.title)
+        borrower.save()
+    
+        requested_book = RequestedBook(book_name = book.title ,pickup_time = book_time_limit(),return_date= get_return_date(),borrower=request.user)
+        requested_book.save()
+        # notifications = Returned_book
+        book.status = False
+        book.save()
 
-    context = { 'return_date':requested_book.return_date }
+        context = {'return_date':requested_book.return_date}
 
-    return render(request, 'books/borrow.html', context)
+        return render(request, 'books/borrow.html', context)
 
     # return redirect('books:home')
-
-
-
 """Defining views for the profile page"""
 @login_required
 def profile(request):
@@ -108,7 +114,7 @@ def notifications(request):
 
     if request.user in notice:
 
-        if notice.date_of_return > notice.return_date + timedelta(hours=2):
+        if notice.date_of_return > notice.return_date + timedelta(days=3):
             context = {'fine5000': 'you have a fine of 5000 UGX'}
             return render(request,'books/notifications.html',context)
         elif notice.date_of_return > notice.return_date + timedelta(days=10):
