@@ -60,10 +60,10 @@ def date_now():
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)
   borrower = models.ForeignKey(Borrower, null = True , on_delete=models.CASCADE)
-  user = models.ForeignKey(User,on_delete= models.CASCADE)
   reg_no = models.CharField(max_length=200)
   issued_date = models.DateField(default= date_now)
   return_date = models.DateField(default=get_return_date) 
+  user = models.ForeignKey(User,on_delete= models.CASCADE)
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
@@ -73,22 +73,17 @@ class IssuedBook(models.Model):
 
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
-  # book_request = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='requested_book_num')
   book_name = models.CharField(max_length= 200)
   return_date = models.DateField(default=get_return_date)
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
+  user = models.ForeignKey(User,on_delete= models.CASCADE)
+  
   class Meta:
     verbose_name_plural = 'requestedbooks'
 
   def __str__(self):
     return str(self.book_name) + '(' + str(self.borrower) + ')'
-
-  # def number_of_requested_books(self):
-  #   if self.book_request.count() < 3:
-  #     return self.book_request.count()
-  #   else:
-  #     return "Unable to borrow more than two books."
 
   
 class Returned_book(models.Model):
@@ -99,8 +94,6 @@ class Returned_book(models.Model):
   user = models.ForeignKey(User,on_delete= models.CASCADE)
   return_date = models.DateField(default=get_return_date)
 
-  # def __str__(self):
-  #   return self.book_name + '[' + self.borrower + ']'
   def __str__(self):
     return self.user
 

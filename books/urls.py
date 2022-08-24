@@ -13,15 +13,15 @@ urlpatterns = [
     path('borrow/<int:book_id>' ,views.borrow, name = 'borrow'),
     #Profile page
     path('profile/', views.profile, name = 'profile'),
-    #Borrowed book page in the profile
-    path('borrowed_book/', views.borrowed_book, name = 'borrowed_book'),
+    # #Borrowed book page in the profile
+    path('requested_book/', views.requested_book, name = 'requested_book'),
     #Returned book page in the profile
-    path('returned_book/', views.returned_book, name = 'returned_book'),
-    #Notifications book page in the profile
+    path('remove_book/<int:id>/', views.remove_book, name = 'remove_book'),
+    # #Notifications book page in the profile
     path('notifications/', views.notifications, name = 'notifications'),
     #Fines page
-    path('fines', views.fines, name = 'fines'),
-    #Confirm borrow page
+    path('returned_book/', views.returned_book, name = 'returned_book'),
+    # #Confirm borrow page
     path('confirm_borrow/<int:id>', views.confirm_borrow, name = 'confirm_borrow'),
     
 ]

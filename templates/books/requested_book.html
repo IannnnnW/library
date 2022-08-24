@@ -1,0 +1,19 @@
+{% include 'books/profile.html' %}
+
+{% for book in requested %}
+    <div class="col col-xs-10 col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        <u>
+                            <h3 class="text-black"> {{ book.book_name}}
+                                 <a href="{% url 'books:remove_book' book.id %}">
+                                    <button class="btn mb-3 btn-outline-warning float-right btn-sm border rounded">REMOVE</button>
+                                </a>
+                            </h3>
+                        </u>
+                    </p>
+                </div>
+            </div>
+    </div>
+{% endfor %}
