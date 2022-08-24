@@ -18,7 +18,6 @@ class Book(models.Model):
     ('romance', 'Romance'),
     ('scifi','Sci-Fi')
   ]
-  
   title = models.CharField(max_length=200)
   author = models.CharField(max_length=200)
   category = models.CharField(max_length=40, choices = CATEGORY)
@@ -27,7 +26,6 @@ class Book(models.Model):
   image = models.ImageField(upload_to = 'pics', blank = True)
   class Meta:
     verbose_name_plural = 'books'
-
 
   def __str__(self):
     return self.title

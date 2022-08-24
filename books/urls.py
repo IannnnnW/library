@@ -11,8 +11,6 @@ urlpatterns = [
     path('search_book/' ,views.search_book, name = 'search_book'),
     #Borrow page
     path('borrow/<int:book_id>' ,views.borrow, name = 'borrow'),
-    #Profile page
-    path('profile/', views.profile, name = 'profile'),
     # #Borrowed book page in the profile
     path('requested_book/', views.requested_book, name = 'requested_book'),
     #Returned book page in the profile
