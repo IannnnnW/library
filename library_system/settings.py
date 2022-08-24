@@ -88,21 +88,8 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-<<<<<<< HEAD
-        'NAME': 'vinx2db',
-        'USER': 'postgres',
-        'PASSWORD':'1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
-
-=======
-        'NAME': 'Library',
-        'USER': 'postgres',
-        'PASSWORD':'12345',
-        'HOST': 'localhost',
-        'PORT': '5432',
->>>>>>> e6421a2edc5942384c99e89253986c3c57a23d71
+        'ENGINE':'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -144,7 +131,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'books/static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -159,3 +146,7 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 #My Settings
 LOGIN_URL = 'users:login'
 LOGOUT_REDIRECT_URL = "books:index"
+
+#Heroku settings
+import django_heroku
+django_heroku.settings(locals())

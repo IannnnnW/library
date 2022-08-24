@@ -1,8 +1,8 @@
 # Library_9
 
-Library catalog
+Library system
 
-The library catalog is an web application that houses an electronic library system.
+The library system is an web application that houses an electronic library system.
 The system was developed to avail students access to a variety of educational books with as much ease as possible.
 
 source: http://library_9/?  , http://127.0.0.1:8000/
@@ -53,7 +53,9 @@ Victor Nsengiyumva
 status: The web application is still under development to meet utmost optimisation.
 
 database:
-data is stored on the sqlite3 database system which is secure
+data is stored on the postgres database system which is secure.
+
+link: https://calm-cove-66340.herokuapp.com/
 
 
 
