@@ -62,24 +62,24 @@
 =======
 <<<<<<< HEAD
                                     <a href="{% url 'books:confirm_borrow' b.id %}">{{ b }}
+<<<<<<< HEAD
+                                    <p class="text-warning"> Status : <span class="text-success">Available</span>  </p>
+                                    <a href="{% url 'books:confirm_borrow' b.id %}">
+=======
 =======
                                     <a href="{% url 'books:borrowed_book' b.id %}">
 >>>>>>> 4a05ae5442b60858020d5bdc9d332b6af9b02b9e
 >>>>>>> f37d350ec09a31abcfc2a41ad0b609b946bd6213
+>>>>>>> f824cb46f26996ca927178691eed299b80acfb9e
                                         <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
                                     <!-- the button was put inside the href link , why!! -->
                                     </a>
                                 {% else %}
-<<<<<<< HEAD
-                                
-                                
-                                
 
                                 <p class="text-warning"> Status : <span class="text-danger">Unavailable </span> </p>
                             
                                         <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled">BORROW</button>
                                     <!-- the button was put inside the href link , why!! -->
-=======
                                     <p class="text-warning"> Status : <span class="text-danger">Unavailable </span> </p>
                                     <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled" data-toggle="modal" data-target="#modalCenter" type="button">
                                         BORROW
@@ -103,7 +103,10 @@
                                             </div>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+=======
 >>>>>>> 4a05ae5442b60858020d5bdc9d332b6af9b02b9e
+>>>>>>> f824cb46f26996ca927178691eed299b80acfb9e
                                 {% endif %}
                             </div>
                         </div>
