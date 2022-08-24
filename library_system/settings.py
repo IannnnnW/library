@@ -147,6 +147,13 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 LOGIN_URL = 'users:login'
 LOGOUT_REDIRECT_URL = "books:index"
 
-#Heroku settings
+
+# Heroku settings.
 import django_heroku
 django_heroku.settings(locals())
+
+if os.environ.get('DEBUG') == 'TRUE':
+    DEBUG = True
+elif os.environ.get('DEBUG') == 'FALSE':
+    DEBUG = False
+
