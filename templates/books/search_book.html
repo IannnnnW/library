@@ -3,12 +3,7 @@
 <br>
 {% block content %}
     {% if searched not in books %}
-<<<<<<< HEAD
-        <h1>You searched for "{{ searched }}"</h1><br>
-        <h1 class="text-center">You searched for "{{ searched }}"</h1><br>
-=======
         <h1 class="text-center">Results for the search "{{ searched }}"</h1><br>
->>>>>>> f824cb46f26996ca927178691eed299b80acfb9e
         {% for book in books %}
             <div class="card">
                 <div class="row">

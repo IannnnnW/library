@@ -18,7 +18,6 @@ class Book(models.Model):
     ('romance', 'Romance'),
     ('scifi','Sci-Fi')
   ]
-  
   title = models.CharField(max_length=200)
   author = models.CharField(max_length=200)
   category = models.CharField(max_length=40, choices = CATEGORY)
@@ -27,7 +26,6 @@ class Book(models.Model):
   image = models.ImageField(upload_to = 'pics', blank = True)
   class Meta:
     verbose_name_plural = 'books'
-
 
   def __str__(self):
     return self.title
@@ -47,7 +45,7 @@ class Borrower(models.Model):
 
 """Function to define the return date of the book"""
 def get_return_date():
-  return datetime.now() + timedelta(hours = 1)
+  return datetime.now() + timedelta(days = 14)
 
 """Function to define the amount of time for the user to pick the book"""
 def book_time_limit():
@@ -55,7 +53,7 @@ def book_time_limit():
 
 def date_now():
   return datetime.now()
-  
+
 """Model for the books issued to a borrower"""
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)
@@ -63,6 +61,9 @@ class IssuedBook(models.Model):
   reg_no = models.CharField(max_length=200)
   issued_date = models.DateField(default=date_now)
   return_date = models.DateField(default=get_return_date) 
+  issued_date = models.DateField(default= date_now)
+  return_date = models.DateField(default=get_return_date) 
+  user = models.ForeignKey(User,on_delete= models.CASCADE)
   class Meta:
     verbose_name_plural = 'issuedbooks'
 
@@ -72,11 +73,12 @@ class IssuedBook(models.Model):
 
 """Model for the  book requested by the borrower"""
 class RequestedBook(models.Model):
-  # book_request = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='requested_book_num')
   book_name = models.CharField(max_length= 200)
   return_date = models.DateField(default=get_return_date)
   pickup_time = models.DateTimeField(default=book_time_limit)
   borrower = models.CharField(max_length= 200)
+  user = models.ForeignKey(User,on_delete= models.CASCADE)
+  
   class Meta:
     verbose_name_plural = 'requestedbooks'
 
@@ -84,18 +86,14 @@ class RequestedBook(models.Model):
     return str(self.book_name) + '(' + str(self.borrower) + ')'
 
   
-
-
 class Returned_book(models.Model):
   borrower = models.ForeignKey(Borrower,on_delete= models.CASCADE)
   book_name = models.ForeignKey(IssuedBook,on_delete= models.CASCADE)
-  date_of_return = models.DateTimeField(auto_now = True)
+  date_of_return = models.DateTimeField(default= date_now)
   reg_no = models.BigIntegerField()
   user = models.ForeignKey(User,on_delete= models.CASCADE)
-  return_date = models.DateField(auto_now = True)
+  return_date = models.DateField(default=get_return_date)
 
-  # def __str__(self):
-  #   return self.book_name + '[' + self.borrower + ']'
   def __str__(self):
     return self.user
 

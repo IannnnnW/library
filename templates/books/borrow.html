@@ -15,7 +15,7 @@
 </head>
 
 {% block content %}
-<body class="mt-5" style="background-image: url('{% static "img/lib4.JPG" %}')"  no-repeat center center-cover;>
+<body class="mt-5" style="background-image: url('{% static "img/lib9.jpg" %}')"  no-repeat center center-cover;>
     {% for b in books %}
         <div class="container align-text-bottom">
             <div class="media">
@@ -30,18 +30,17 @@
                             <div class="card-body">
                                 <p><u><h3 class="text-warning text-responsive"> {{ b }} </h3></u></p>
                                 <p class="text-white text-justify"> {{ b.description }} </p>
-                                <br>
-                                <br>
+
                                 <div>
                                     <span class="font-weight-bold text-warning">Author:</span>
                                     <i class="text-white"> {{ b.author }} </i>
                                 </div>
-                                <br>
+                                
                                 <div>
                                     <span class="font-weight-bold text-warning">Genre:</span>
                                     <i class="text-white"> {{ b.category }} </i>
                                 </div>
-                                <br>
+                            
                                 <p><u><h5 class="text-warning">Related books</h5></u></p>
                                 <ol class="text-white text-monospace">
                                     {% for book in all_books %}
@@ -50,63 +49,30 @@
                                         {% endif %}
                                     {% endfor %}
                                 </ol>
-                                <br>
+                                
                                 {% if b.status %}
-                                    
-                                    <p class="text-light"> The book should be picked within 6 hours </p>
-                                    <!-- <p class="text-light"> Return date : {{ return_date }}</p> -->
-                                    <p class="text-warning"> Status : <span class="text-success">Available</span>  </p>
-                            
-<<<<<<< HEAD
-                                    <a href="{% url 'books:confirm_borrow' b.id %}">
-=======
-<<<<<<< HEAD
-                                    <a href="{% url 'books:confirm_borrow' b.id %}">{{ b }}
-<<<<<<< HEAD
-                                    <p class="text-warning"> Status : <span class="text-success">Available</span>  </p>
-                                    <a href="{% url 'books:confirm_borrow' b.id %}">
-=======
-=======
-                                    <a href="{% url 'books:borrowed_book' b.id %}">
->>>>>>> 4a05ae5442b60858020d5bdc9d332b6af9b02b9e
->>>>>>> f37d350ec09a31abcfc2a41ad0b609b946bd6213
->>>>>>> f824cb46f26996ca927178691eed299b80acfb9e
-                                        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
-                                    <!-- the button was put inside the href link , why!! -->
-                                    </a>
-                                {% else %}
+                                   {% if count == 3 %}
+                                        <p class="text-warning"> Status : <span class="text-danger">First return borrowed books</span> </p>
+                                        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled" data-toggle="modal" data-target="#modalCenter" type="button">
+                                            BORROW
+                                        </button>
+                                    {%else%}
+                                        
+                                        <p  class="text-success"> {{return_date}} </p>
+                                        <p  class="text-success"> the book should be picked within 6 hours  </p>
+                                        <p class="text-warning"> Status : <span class="text-success">Available</span>  </p>
+                                
+                                        <a href="{% url 'books:confirm_borrow' b.id %}">
+                                        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded" data-toggle="modal" data-target="#modalCenter" type="button">BORROW</button>
+            
+                                        </a>
+                                    {%endif%}
 
-                                <p class="text-warning"> Status : <span class="text-danger">Unavailable </span> </p>
-                            
-                                        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled">BORROW</button>
-                                    <!-- the button was put inside the href link , why!! -->
+                                {% else %}
                                     <p class="text-warning"> Status : <span class="text-danger">Unavailable </span> </p>
                                     <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled" data-toggle="modal" data-target="#modalCenter" type="button">
                                         BORROW
                                     </button>
-                            
-                                    <div class="modal" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title text-danger text-center" id="modalLongTitle">NOTICE!!</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span class="close-button" aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>Unfortunately the book has been borrowed. You will have to wait till the the book is returned.</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-<<<<<<< HEAD
-=======
->>>>>>> 4a05ae5442b60858020d5bdc9d332b6af9b02b9e
->>>>>>> f824cb46f26996ca927178691eed299b80acfb9e
                                 {% endif %}
                             </div>
                         </div>
@@ -116,26 +82,7 @@
         </div>
     {% endfor %}
 
-<script>
-    const modal = document.querySelector(".modal");
-    const btn = document.querySelector(".btn");
-    const closeButton = document.querySelector(".close-button");
-
-    function toggleModal() {
-        modal.classList.toggle("show-modal");
-    }
-
-    function windowOnClick(event) {
-        if (event.target === modal) {
-            toggleModal();
-        }
-    }
-
-    btn.addEventListener("click", toggleModal);
-    closeButton.addEventListener("click", toggleModal);
-    window.addEventListener("click", windowOnClick);
-</script>
-    
+   
 <script src='{% static "https://code.jquery.com/jquery-3.3.1.slim.min.js"%}' integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 crossorigin="anonymous"></script>
 <script src='{% static "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"%}' integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
