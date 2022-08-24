@@ -41,7 +41,7 @@ class Borrower(models.Model):
     verbose_name_plural = 'borrowers'
 
   def __str__(self):
-    return str(self.username)+"["+str(self.book_name)+']'
+    return str(self.username)
 
 """Function to define the return date of the book"""
 def get_return_date():
@@ -53,7 +53,6 @@ def book_time_limit():
 
 def date_now():
   return datetime.now()
-
 """Model for the books issued to a borrower"""
 class IssuedBook(models.Model):
   book_name = models.ForeignKey(Book, null = True , on_delete=models.CASCADE)

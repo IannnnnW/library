@@ -45,19 +45,18 @@
                                 <ol class="text-white text-monospace">
                                     {% for book in all_books %}
                                         {% if book.category == b.category and book != b %}
-                                            <li>{{ book }}</li>
+                                            <li><a href="{% url 'books:borrow' book.id %}"> {{ book }} </a></li>
                                         {% endif %}
                                     {% endfor %}
                                 </ol>
                                 
                                 {% if b.status %}
-                                    {% if count == 3 %}
+                                   {% if count == 3 %}
                                         <p class="text-warning"> Status : <span class="text-danger">First return borrowed books</span> </p>
                                         <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled" data-toggle="modal" data-target="#modalCenter" type="button">
                                             BORROW
                                         </button>
                                     {%else%}
-
                                         
                                         <p  class="text-success"> {{return_date}} </p>
                                         <p  class="text-success"> the book should be picked within 6 hours  </p>
@@ -75,7 +74,6 @@
                                         BORROW
                                     </button>
                                 {% endif %}
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -84,7 +82,7 @@
         </div>
     {% endfor %}
 
-    
+   
 <script src='{% static "https://code.jquery.com/jquery-3.3.1.slim.min.js"%}' integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 crossorigin="anonymous"></script>
 <script src='{% static "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"%}' integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
